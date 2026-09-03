@@ -1,16 +1,37 @@
-# React + Vite
+# TV Show Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+In my Open Source Web Technologies class, I am making a TV show tracker website where people can keep track of what shows they are currently watching and want to watch.
 
-Currently, two official plugins are available:
+## Topic
+Students could choose from archetypes of:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Digital Collection
+* Personal Tracker
+* Content Hub
 
-## React Compiler
+## Frameworks Technologies
+Students got to choose which front-end and back-end framework they would like to work with and learn from a list of options the professor provided
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Deployment: 
+We are required to use Vercel to deploy our full-stack web application.
 
-## Expanding the Oxlint configuration
+Front-End: 
+* Next.js
+* React
+* Vue.js
+* Svelte
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Back-End options:
+* Supabase
+* Node.js with Express
+* Ruby on Rails
+* Django with Python
+
+Database:
+* MySQL
+* SQLite
+* PostgreSQL
+
+
+
+
