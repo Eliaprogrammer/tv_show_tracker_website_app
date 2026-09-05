@@ -1,33 +1,127 @@
-h1{
-  text-align: "center";
+*{
+  box-sizing: border-box;
+}
+
+.Landing{
+  width:100%;
+  min-height: 100vh;
+  padding: 13px 20px 30px;
+}
+
+
+.heading{
+
   background-color:#b0cbe6;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
+  width: min(393px, 90%);
+  height: 73px;
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
+
+h1{
+  margin: 0;
+  font-size: clamp(32px, 5vw, 48px);
+  text-align: center;
+  justify-content: center;
+}
+
 body{
+  margin: 0;
   background-color: #fed6ce;
+
 }
 
-h3{
+
+.content{
+  width: min(668px, 90%);
+  margin: 64px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px 27px;
+  background-color: transparent;
+}
+
+.account, .add, .manage,.access{
+  background-color: #a4b5d1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.account h3:first-child, .add  h3, .manage h3, .access h3{
+  margin: 0 0 35px;
+  font-size: clamp(20px, 3vw, 27px);
   font-style: italic;
 }
-.loginButton{
+
+.account p:last-child, .add p, .manage p,.access p{
+  margin: 0;
+  font-size: clamp(18px, 3vw, 27px);
+}
+
+
+.topButtons{
+  position: absolute;
+  top:27px;
+  right:3%;
+  display:flex;
+  align-items:center;
+}
+.bottomButtons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 63px;
+}
+
+.topLoginButton {
   border: black solid 1px;
-  border-radius : 5px;
+  border-radius: 5px;
   background-color: #496894;
-  padding : 8px
+  padding: 8px 12px;
+  margin-right: 10px;
+  font-style: italic;
+  font-size: clamp(14px, 1.5vw, 16px);
 
 }
 
-.createAccountButton{
+.top_create_Account_Button{
   border: black solid 1px;
   border-radius : 5px;
   background-color:#1d3156;
   color: white;
+  padding: 8px 12px;
+  font-size: clamp(11px, 1.5vw, 14px);
+
+}
+
+.bottomLoginButton {
+  border: black solid 1px;
+  border-radius: 5px;
+  background-color: #496894;
   padding: 8px;
+  margin-right: 10px;
+  font-style: italic;
+  font-size: clamp(18px, 3vw, 24px);
 
+}
 
+.bottom_create_Account_Button{
+  border: black solid 1px;
+  border-radius : 5px;
+  background-color:#1d3156;
+  color: white;
+  padding: 8px 11px;
+  font-size: clamp(16px, 2.5vw, 21px);
+}
+
+.footerLinks{
+  background-color: #faf8f8;
+}
+.info{
+  background-color: lightgray;
 }

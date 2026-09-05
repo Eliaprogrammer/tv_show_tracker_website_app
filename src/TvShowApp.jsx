@@ -1,41 +1,97 @@
+import React from 'react';
+import {createRoot} from 'react-dom/client';
 import './TvShowApp.css'
 
-function Login(){
-    return(
-    <button className="loginButton"> Login </button>
+const container = document.getElementById('root')
+const root = createRoot(container)
+root.render(<TvShowApp/>)
 
-    )
 
-}
-function CreateAccount()
-{
-    return(
-        <button className="createAccountButton"> Create Account</button>
-    )
-}
 function TvShowApp() {
-  return (
+    return (
 
-      <div className="Landing">
-          <header className="Title">
-              <h1>TV Show Tracker</h1>
-              <Login />
-              <CreateAccount />
-          </header>
-          <p><i>Create an account or login</i></p>
-          <p>All the your show in one place</p>
-          <h3><i>Add</i></h3>
-          <p>Add new show to your watch list</p>
-          <h3><i>Manage</i></h3>
-          <p>You get to choose what shows stay and goes</p>
-          <h3><i>View</i></h3>
-          <p> View all shows that at once or sort by genre</p>
-         <Login />
-         <CreateAccount />
+        <div className="Landing" id ="top">
+            <Header />
+            <Body />
+            <Footer />
+        </div>
 
-      </div>
+    )
+}
+function Header(){
+    return(
+        <>
+            <div className="heading">
+                <h1>TV Show Tracker</h1>
+            </div>
 
-  )
+            <div className="topButtons">
+                <button className="topLoginButton"> Login</button>
+                <button className="top_create_Account_Button" > Create Account</button>
+            </div>
+        </>
+    )
+}
+
+function Body(){
+    return(
+        <>
+            <div className="content">
+
+                <div className="account">
+                    <h3><i>Create an account or login</i></h3>
+                    <p>All the your show in one place</p>
+                </div>
+
+                <div className="add">
+                    <h3><i>Add</i></h3>
+                    <p>Add new show to your watch list</p>
+                </div>
+
+                <div className="manage">
+                    <h3><i>Manage</i></h3>
+                    <p>You get to choose what shows stay and goes</p>
+                </div>
+
+                <div className="access">
+                    <h3><i>View</i></h3>
+                    <p> View all shows that at once or sort by genre</p>
+                </div>
+
+            </div>
+
+            <div className="bottomButtons">
+                <button className="bottomLoginButton"> Login </button>
+                <button className="bottom_create_Account_Button" > Create Account </button>
+            </div>
+        </>
+    )
+}
+
+function Footer(){
+    return(
+        <div className="footer">
+            <a href = 'Return to top'> Return to top</a>
+
+            <div className="footerLinks">
+                <p>Getting Started</p>
+                <p>About us</p>
+            </div>
+            <div className="info">
+                <div className="address">
+                    <p>123 address lane</p>
+                    <p>Apopka, Florida</p>
+                    <p>32703</p>
+                </div>
+
+                <img src= "src/assets/facebook.png" alt = "An image of facebook logo"/>
+                <img src= "src/assets/Instagram.jpeg" alt = "An image of instagram logo"/>
+
+                <p>123-456-7890</p>
+                <p>info@tvtracker.com</p>
+            </div>
+        </div>
+    )
 }
 
 export default TvShowApp
