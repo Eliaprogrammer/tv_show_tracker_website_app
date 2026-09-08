@@ -32,6 +32,13 @@ Database:
 * SQLite
 * PostgreSQL
 
+## Project Overview
+I chose to use React as my front-end framework and Supabase as my back-end framework. Supabase includes a PostgreSQL database. 
+
+#### Task/Weekly Objective
+August 24- September 1: Project Proposal (Approved on September 2, 2026)
+
+September 2- September 8: Landing Page designed and completed.
 
 
 
