@@ -1,0 +1,31 @@
+.form_design{
+    background-color: #a4b5d1;
+    margin-bottom: clamp(60px, 5vw, 65px);
+    margin-top: clamp(60px, 5vw, 45px);
+    padding-right: clamp(60px, 5vw, 45px);
+    padding-left: clamp(60px, 5vw, 45px);
+    padding-bottom: clamp(60px, 5vw, 45px);
+
+}
+
+label{
+    font-size: 20px;
+    padding-bottom: clamp(35px, 3vw, 38px)
+}
+
+.signupButton{
+    background-color: #496894;
+    color: white;
+    font-size: 15px;
+    padding: 10px 35px;
+    border: none;
+    margin-right: 15px
+}
+
+.cancelButton{
+    background-color: #B14746;
+    color: white;
+    font-size: 15px;
+    padding: 10px 35px;
+}
+

@@ -1,10 +1,9 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import TvShowApp from './TvShowApp.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import AppRouter from './AppRouter.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <TvShowApp />
+    <AppRouter />
   </StrictMode>,
 )

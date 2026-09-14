@@ -1,40 +1,60 @@
-import React from 'react';
-import createRoot from 'react-dom/client';
-import {useState} from "react";
-
-
-const[status, setStatus] = useState(true)
-export default function NewAccount({signupButton, cancelButton}) {
+import "./CreateAccount.css";
+function NewAccount() {
     return(
-        <div>
-            <form>
+        <div className="form_design">
+            <form >
                 <h1>Create Account</h1>
-                <h3>Get started with an account</h3>
-                <br/>
-                <p className="required">*</p>
-                <p><i>indicates a required field. </i></p>
-                <label> First and Last Name:
-                    <input type="text" value={"name"}/>
-                </label>
-                <label> Email address:
-                    <input type="text" />
-                </label>
-                <label> Password:
-                    <input type="text" />
-                </label>
-                <label>Show Password:
-                    <a href={"Show Password"}>Show Password</a>
-                </label>
-                <label> Re-type Password::
+                <h4>Get started with an account</h4>
+
+
+                <p className="required"> * <i> indicates a required field. </i></p>
+
+                <label>
+                    First and Last Name:
+                    <br />
                     <input type="text" />
                 </label>
 
-                <input className="signupButton" type="submit">Create Account</input>
-                <input className="cancelButton" type="cancel">Cancel</input>
+                <br/>
+
+                <label>
+                    Email address:
+                    <br />
+                    <input type="email" />
+                </label>
+
+                <br/>
+
+                <label>
+                    Password:
+                    <br />
+                    <input type="password" />
+                </label>
+
+                <br/>
+
+                <label>
+                    <a href="#">Show Password</a>
+                </label>
+
+                <br/>
+
+                <label>
+                    Re-type Password:
+                    <br />
+                    <input type="password" />
+                </label>
+
+                <br/>
+                <br/>
+
+                <button className="signupButton" type="submit">Create Account</button>
+                <button className="cancelButton" type="button">Cancel</button>
 
             </form>
         </div>
+
     )
 }
 
-createRoot(document.getElementById('root')).render(<NewAccount/>);
+export default NewAccount;

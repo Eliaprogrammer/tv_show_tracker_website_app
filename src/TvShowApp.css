@@ -96,19 +96,20 @@ body{
   padding: 8px 11px;
   font-size: clamp(16px, 2.5vw, 21px);
 }
+
 .footer{
   background-color: lightgray;
 }
+
 .footerLinks{
   background-color: #faf8f8;
   display: flex;
   flex-direction: row;
-
 }
+
 .footerLinks p{
   margin: 0 10px;
 }
-
 
 .address p{
   margin: auto 20px;
@@ -120,8 +121,6 @@ body{
 .Images img{
   width: 50px;
   height: 50px;
-
-
 }
 
 .Images{
@@ -129,7 +128,6 @@ body{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
 }
 
 .info{

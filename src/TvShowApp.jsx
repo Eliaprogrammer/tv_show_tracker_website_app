@@ -1,20 +1,20 @@
 "use client"
-import React from 'react'
-import {createRoot} from 'react-dom/client'
-import {useMediaQuery} from 'react-responsive'
-import './TvShowApp.css'
+import React from 'react';
+import {useMediaQuery} from 'react-responsive';
+import {useNavigate} from 'react-router-dom';
 
-const container = document.getElementById('root')
-const root = createRoot(container)
-root.render(<TvShowApp/>)
+import './TvShowApp.css'
+import facebook from './assets/facebook.png';
+import instagram from './assets/Instagram_icon.png';
+
 
 const Responsiveness = () =>{
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1224px'
+        query: "(min-width: 1224px)"
     })
-    const isBigScreen = useMediaQuery({query:'(min-width:1824)'})
-    const isTabletOrMobile = useMediaQuery({query:'(max-width:1223)'})
-    const isRetina = useMediaQuery({query:'(min-resolution: 2dppx)'})
+    const isBigScreen = useMediaQuery({query:"(min-width:1824px)"})
+    const isTabletOrMobile = useMediaQuery({query:"(max-width:1223px)"})
+    const isRetina = useMediaQuery({query:"(min-resolution: 2dppx)"})
 
     console.log(isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isRetina );
 
@@ -22,6 +22,7 @@ const Responsiveness = () =>{
 }
 
 function TvShowApp() {
+    // const navigate = useNavigate();
     return (
         <div >
             <Responsiveness/>
@@ -33,6 +34,7 @@ function TvShowApp() {
     )
 }
 function Header(){
+    const navigate = useNavigate();
     return(
         <>
             <div className="heading">
@@ -40,14 +42,17 @@ function Header(){
             </div>
 
             <div className="topButtons">
-                <button className="topLoginButton"> Login</button>
-                <button className="top_create_Account_Button" > Create Account</button>
+                <button className="topLoginButton" type="submit" onClick={()=>navigate("/sign_in")}> Login</button>
+                <button className="top_create_Account_Button" onClick={()=>navigate("/create_account")}>
+                    Create Account
+                </button>
             </div>
         </>
     )
 }
 
 function Body(){
+    const navigate = useNavigate();
     return(
         <>
             <div className="content">
@@ -75,8 +80,10 @@ function Body(){
             </div>
 
             <div className="bottomButtons">
-                <button className="bottomLoginButton"> Login </button>
-                <button className="bottom_create_Account_Button" > Create Account </button>
+                <button className="bottomLoginButton" onClick={()=>navigate("/sign_in")}> Login </button>
+                <button className="bottom_create_Account_Button" onClick={() => navigate("/create_account")}>
+                    Create Account
+                </button>
             </div>
         </>
     )
@@ -103,8 +110,8 @@ function Footer(){
                 </div>
 
                 <div className="Images">
-                    <img src= "src/assets/facebook.png" alt = "An image of facebook logo"/>
-                    <img src= "src/assets/Instagram_icon.png" alt = "An image of instagram logo"/>
+                    <img src={facebook} alt = "An image of facebook logo"/>
+                    <img src={instagram} alt = "An image of instagram logo"/>
                 </div>
 
                 <div className="info">
