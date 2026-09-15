@@ -3,12 +3,16 @@ import {Link} from "react-router-dom";
 function Login(){
     return(
         <div className="login-form">
-            <h1>Please enter your email and password to login</h1>
+
+            <p className="subheading">Please enter your email and password to login</p>
+
             <div className="outer">
+
                 <form className="login-design">
+
                     <div className="form-header">
                         <h2>Sign In</h2>
-                        <p>Access your account</p>
+                        <p > Access your account</p>
                     </div>
 
 
@@ -21,8 +25,6 @@ function Login(){
                     </div>
 
 
-
-
                     <div className="form-group">
                         <label>
                             Password
@@ -32,6 +34,7 @@ function Login(){
 
                         <Link className="password" to="#" name="show ">Show password</Link>
                     </div>
+
 
                     <div className="form-group">
                         <button className="loginSubmit" type="submit"> Submit</button>

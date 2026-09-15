@@ -20,6 +20,8 @@ body{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 11px 27px;
+  font-family: "IM Fell French Canon", serif;
+
 }
 
 .account, .add, .manage,.access{
@@ -30,14 +32,14 @@ body{
   text-align: center;
 }
 
-.account h3, .add  h3, .manage h3, .access h3{
-  margin: 0 0 35px;
+.header p, .header p, .manage p, .access p{
   font-size: clamp(20px, 3vw, 27px);
   font-style: italic;
+
 }
 
 .account p, .add p, .manage p,.access p{
-  margin: 0;
+  margin-top: 15px;
   font-size: clamp(18px, 3vw, 27px);
 }
 
@@ -65,6 +67,7 @@ body{
   font-style: italic;
   font-size: clamp(14px, 1.5vw, 16px);
 
+
 }
 
 .top_create_Account_Button{
@@ -74,6 +77,7 @@ body{
   color: white;
   padding: 8px 12px;
   font-size: clamp(11px, 1.5vw, 14px);
+  font-family: "Rubik", sans-serif;
 
 }
 
@@ -95,4 +99,5 @@ body{
   color: white;
   padding: 8px 11px;
   font-size: clamp(16px, 2.5vw, 21px);
+  font-family: "Rubik", sans-serif;
 }

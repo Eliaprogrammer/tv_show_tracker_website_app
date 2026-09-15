@@ -15,8 +15,6 @@ const Responsiveness = () =>{
     const isRetina = useMediaQuery({query:"(min-resolution: 2dppx)"})
 
     console.log(isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isRetina );
-
-
 }
 
 function TvShowApp() {
@@ -54,22 +52,22 @@ function Body(){
             <div className="content">
 
                 <div className="account">
-                    <h3><i>Create an account or login</i></h3>
+                    <p className="header"><i>Create an account or login</i></p>
                     <p>All the your show in one place</p>
                 </div>
 
                 <div className="add">
-                    <h3><i>Add</i></h3>
+                    <p className="header"><i>Add</i></p>
                     <p>Add new show to your watch list</p>
                 </div>
 
                 <div className="manage">
-                    <h3><i>Manage</i></h3>
+                    <p className="header"><i>Manage</i></p>
                     <p>You get to choose what shows stay and goes</p>
                 </div>
 
                 <div className="access">
-                    <h3><i>View</i></h3>
+                    <p className="header"><i>View</i></p>
                     <p> View all shows that at once or sort by genre</p>
                 </div>
 

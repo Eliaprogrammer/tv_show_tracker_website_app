@@ -1,22 +1,45 @@
 .form_design{
-    background-color: #a4b5d1;
-    margin-bottom: clamp(60px, 5vw, 65px);
-    margin-top: clamp(60px, 5vw, 45px);
+    background-color: #b0cbe6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     padding-right: clamp(60px, 5vw, 45px);
     padding-left: clamp(60px, 5vw, 45px);
     padding-bottom: clamp(60px, 5vw, 45px);
 
 }
+.form_design .required{
+    color: red;
+}
 
-label{
+.form-content h1{
+    font-family: "Rubik", sans-serif;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.form-content p{
+    display: inline;
+}
+.form-content label{
+    font-family: "IM Fell French Canon", serif;
+}
+
+.form-content{
     font-size: 20px;
     padding-bottom: clamp(35px, 3vw, 38px)
+}
+.form-content .show{
+    display: block;
+    text-align: right;
+    margin-right: 60px;
 }
 
 .signupButton{
     background-color: #496894;
     color: white;
     font-size: 15px;
+    font-family: "Rubik", sans-serif;
     padding: 10px 35px;
     border: none;
     margin-right: 15px
@@ -26,6 +49,13 @@ label{
     background-color: #B14746;
     color: white;
     font-size: 15px;
+    font-family: "Rubik", sans-serif;
     padding: 10px 35px;
+    width: 170px;
+}
+
+.already Link{
+    display: inline;
+    color: cornflowerblue;
 }
 

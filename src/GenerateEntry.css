@@ -1,0 +1,39 @@
+.entry-form p{
+    font-size: 50px;
+    text-align: center;
+}
+
+.form-show-details{
+    background-color: #b0cbe6;
+    max-width: 500px;
+    margin-left: clamp(300px, 4vw, 200px);
+    margin-right: auto;
+    padding: 50px 100px 50px 30px;
+}
+
+.form-details input{
+    margin-bottom: 20px;
+    display: inline;
+}
+
+.form-show-details .save{
+    background-color: #1d3156;;
+    color: white;
+    width: 105px;
+    height: 60px;
+    font-size: 25px;
+    border-radius: 20px;
+
+}
+
+.back{
+    display: block;
+    background-color: #496894;
+    color: white;
+    width: 65px;
+    height: 65px;
+    margin-top: 10px;
+    font-size: 25px;
+    border-radius: 20px;
+}
+

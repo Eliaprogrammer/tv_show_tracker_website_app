@@ -2,10 +2,11 @@
     box-sizing: border-box;
 }
 
-h1 {
+.login-form .subheading{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 30px;
 }
 
 .login-form{
@@ -16,14 +17,14 @@ h1 {
 }
 
 .outer{
-    background-color: #a4b5d1;
+    background-color: #b0cbe6;
     padding: 40px;
 
 }
 
 .login-design{
     border: black solid 1px;
-    background-color: #a4b5d1;
+    background-color: #b0cbe6;
 
 
 }
@@ -37,11 +38,16 @@ h1 {
     margin-bottom: 50px;
 }
 
+.form-header p{
+    margin-left: 0;
+}
+
 .form-header h2{
     margin-top:0;
 
 }
-label, input{
+
+.form-group label, input{
     display: block;
 }
 input{
@@ -49,6 +55,7 @@ input{
     padding: 10px 5px;
 
 }
+
 .form-group{
     margin: 0 10px;
 }
