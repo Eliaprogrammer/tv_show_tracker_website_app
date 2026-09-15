@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form{
+    font-family: "Rubik", sans-serif;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.outer{
+    background-color: #a4b5d1;
+    padding: 40px;
+
+}
+
+.login-design{
+    border: black solid 1px;
+    background-color: #a4b5d1;
+
+
+}
+
+.login-design label{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.form-header{
+    margin-bottom: 50px;
+}
+
+.form-header h2{
+    margin-top:0;
+
+}
+label, input{
+    display: block;
+}
+input{
+    width: 100%;
+    padding: 10px 5px;
+
+}
+.form-group{
+    margin: 0 10px;
+}
+
+.form-group .password{
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+}
+
+
+.loginSubmit{
+    background-color: #496894;
+    color: white;
+    padding: 15px;
+    font-size: clamp(25px, 2vw ,17px);
+    border-radius: 15px;
+}
+.forgot{
+    display: block;
+    color:cornflowerblue;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    font-style: italic;
+    margin-left: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+

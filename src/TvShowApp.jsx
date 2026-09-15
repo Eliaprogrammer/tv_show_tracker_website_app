@@ -4,8 +4,6 @@ import {useMediaQuery} from 'react-responsive';
 import {useNavigate} from 'react-router-dom';
 
 import './TvShowApp.css'
-import facebook from './assets/facebook.png';
-import instagram from './assets/Instagram_icon.png';
 
 
 const Responsiveness = () =>{
@@ -22,13 +20,11 @@ const Responsiveness = () =>{
 }
 
 function TvShowApp() {
-    // const navigate = useNavigate();
     return (
         <div >
             <Responsiveness/>
             <Header />
             <Body />
-            <Footer />
         </div>
 
     )
@@ -86,43 +82,6 @@ function Body(){
                 </button>
             </div>
         </>
-    )
-}
-
-function Footer(){
-    return(
-        <div>
-            <a href = "top"> Return to top</a>
-            <div className="footer">
-
-
-                <div className="footerLinks">
-                    <p>Getting Started</p>
-                    <p>About us</p>
-                </div>
-
-
-
-                <div className="address" >
-                    <p>123 address lane</p>
-                    <p>Apopka, Florida</p>
-                    <p>32703</p>
-                </div>
-
-                <div className="Images">
-                    <img src={facebook} alt = "An image of facebook logo"/>
-                    <img src={instagram} alt = "An image of instagram logo"/>
-                </div>
-
-                <div className="info">
-                    <p>123-456-7890</p>
-                    <p>info@tvtracker.com</p>
-
-                </div>
-            </div>
-        </div>
-
-
     )
 }
 
