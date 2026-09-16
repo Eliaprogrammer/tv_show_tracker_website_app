@@ -12,30 +12,30 @@
     color: red;
 }
 
-.form-content h1{
+.form_content h1{
     font-family: "Rubik", sans-serif;
     font-weight: bold;
     font-size: 32px;
 }
 
-.form-content p{
+.form_content p{
     display: inline;
 }
-.form-content label{
+.form_content label{
     font-family: "IM Fell French Canon", serif;
 }
 
-.form-content{
+.form_content{
     font-size: 20px;
     padding-bottom: clamp(35px, 3vw, 38px)
 }
-.form-content .show{
+.form_content .show{
     display: block;
     text-align: right;
     margin-right: 60px;
 }
 
-.signupButton{
+.signup_button{
     background-color: #496894;
     color: white;
     font-size: 15px;
@@ -45,7 +45,7 @@
     margin-right: 15px
 }
 
-.cancelButton{
+.cancel_button{
     background-color: #B14746;
     color: white;
     font-size: 15px;

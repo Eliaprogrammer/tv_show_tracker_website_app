@@ -1,5 +1,6 @@
-import "./CreateAccount.css";
-import {Link} from "react-router-dom";
+import './CreateAccount.css';
+import {Link} from 'react-router-dom';
+
 function NewAccount() {
     return(
         <div >
@@ -9,7 +10,7 @@ function NewAccount() {
 
                 <Asterisk/><p><i> indicates a required field. </i></p>
 
-                <div className="form-content">
+                <div className="form_content">
                     <label>
                         First and Last Name: <Asterisk/>
                     </label>
@@ -17,14 +18,14 @@ function NewAccount() {
                 </div>
 
 
-                <div className ="form-content">
+                <div className ="form_content">
                     <label>
                         Email address: <Asterisk/>
                     </label>
                     <input type="email" />
                 </div>
 
-                <div className ="form-content">
+                <div className ="form_content">
                     <label>
                         Password: <Asterisk/>
                     </label>
@@ -32,15 +33,15 @@ function NewAccount() {
                     <Link className="show" to="#">Show Password</Link>
                 </div>
 
-                <div className ="form-content">
+                <div className ="form_content">
                     <label>
                         Re-type Password: <Asterisk/>
                     </label>
                     <input type="password" />
                 </div>
 
-                <button className="signupButton" type="submit">Create Account</button>
-                <button className="cancelButton" type="button">Cancel</button>
+                <button className="signup_button" type="submit">Create Account</button>
+                <button className="cancel_button" type="button">Cancel</button>
 
                 <p>Already have an account? </p>
                 <Link className="already" to={"/sign_in"}>Sign in</Link>

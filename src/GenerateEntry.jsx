@@ -1,5 +1,5 @@
-import "./GenerateEntry.css";
-import {useNavigate} from "react-router-dom";
+import './GenerateEntry.css';
+import {useNavigate} from 'react-router-dom';
 
 function GenerateEntry(){
     return(
@@ -8,7 +8,7 @@ function GenerateEntry(){
 
             <p>Enter Show Information to Keep Track</p>
 
-            <form className="form-show-details">
+            <form className="form_show_details">
 
                 <div className="form-details">
                     <label>

@@ -35,9 +35,9 @@ function Header(){
                 <h1>TV Show Tracker</h1>
             </div>
 
-            <div className="topButtons">
-                <button className="topLoginButton" type="submit" onClick={()=>navigate("/sign_in")}> Login</button>
-                <button className="top_create_Account_Button" onClick={()=>navigate("/create_account")}>
+            <div className="top_buttons">
+                <button className="top_login_button" type="submit" onClick={()=>navigate("/sign_in")}> Login</button>
+                <button className="top_create_account_button" onClick={()=>navigate("/create_account")}>
                     Create Account
                 </button>
             </div>
@@ -74,7 +74,7 @@ function Body(){
             </div>
 
             <div className="bottomButtons">
-                <button className="bottomLoginButton" onClick={()=>navigate("/sign_in")}> Login </button>
+                <button className="bottom_login_button" onClick={()=>navigate("/sign_in")}> Login </button>
                 <button className="bottom_create_Account_Button" onClick={() => navigate("/create_account")}>
                     Create Account
                 </button>

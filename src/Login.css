@@ -2,14 +2,14 @@
     box-sizing: border-box;
 }
 
-.login-form .subheading{
+.login_form .subheading{
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
 }
 
-.login-form{
+.login_form{
     font-family: "Rubik", sans-serif;
     max-width: 800px;
     margin-left: auto;
@@ -22,58 +22,59 @@
 
 }
 
-.login-design{
+.login_design{
     border: black solid 1px;
     background-color: #b0cbe6;
 
 
 }
 
-.login-design label{
+.login_design label{
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
 
-.form-header{
+.form_header{
     margin-bottom: 50px;
 }
 
-.form-header p{
+.form_header p{
     margin-left: 0;
 }
 
-.form-header h2{
+.form_header h2{
     margin-top:0;
 
 }
 
-.form-group label, input{
+.form_group label, input{
     display: block;
 }
-input{
+
+.form_group input{
     width: 100%;
     padding: 10px 5px;
 
 }
 
-.form-group{
+.form_group{
     margin: 0 10px;
 }
 
-.form-group .password{
+.form_group .password{
     display: block;
     text-align: right;
     margin-top: 5px;
 }
 
-
-.loginSubmit{
+.login_submit{
     background-color: #496894;
     color: white;
     padding: 15px;
     font-size: clamp(25px, 2vw ,17px);
     border-radius: 15px;
 }
+
 .forgot{
     display: block;
     color:cornflowerblue;

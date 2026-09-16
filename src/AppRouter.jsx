@@ -1,9 +1,9 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import NewAccount from './CreateAccount.jsx';
 import TvShowApp from './TvShowApp.jsx';
 import Login from './Login.jsx';
-import Footer from "./Footer.jsx";
-import GenerateEntry from"./GenerateEntry.jsx";
+import Footer from './Footer.jsx';
+import GenerateEntry from './GenerateEntry.jsx';
 
  function AppRouter(){
     return(

@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-.form-show-details{
+.form_show_details{
     background-color: #b0cbe6;
     max-width: 500px;
     margin-left: clamp(300px, 4vw, 200px);
@@ -16,7 +16,7 @@
     display: inline;
 }
 
-.form-show-details .save{
+.form_show_details .save{
     background-color: #1d3156;;
     color: white;
     width: 105px;

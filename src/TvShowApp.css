@@ -44,7 +44,7 @@ body{
 }
 
 
-.topButtons{
+.top_buttons{
   position: absolute;
   top:27px;
   right:3%;
@@ -58,7 +58,7 @@ body{
   margin-top: 63px;
 }
 
-.topLoginButton {
+.top_login_button {
   border: black solid 1px;
   border-radius: 5px;
   background-color: #496894;
@@ -71,7 +71,7 @@ body{
 
 }
 
-.top_create_Account_Button{
+.top_create_account_button{
   border: black solid 1px;
   border-radius : 5px;
   background-color:#1d3156;
@@ -82,7 +82,7 @@ body{
 
 }
 
-.bottomLoginButton {
+.bottom_login_button {
   border: black solid 1px;
   border-radius: 5px;
   background-color: #496894;
