@@ -43,10 +43,16 @@ function NewAccount() {
                 <button className="signup_button" type="submit">Create Account</button>
                 <button className="cancel_button" type="button">Cancel</button>
 
-                <p>Already have an account? </p>
-                <Link className="already" to={"/sign_in"}>Sign in</Link>
+                <div className="return">
+                    <p>Already have an account? </p>
+                    <Link className="already" to={"/sign_in"}>Sign in</Link>
+                </div>
 
             </form>
+
+
+
+
         </div>
 
     )
