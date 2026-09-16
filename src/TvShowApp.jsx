@@ -53,22 +53,22 @@ function Body(){
 
                 <div className="account">
                     <p className="header"><i>Create an account or login</i></p>
-                    <p>All the your show in one place</p>
+                    <p>All your show in one place</p>
                 </div>
 
                 <div className="add">
                     <p className="header"><i>Add</i></p>
-                    <p>Add new show to your watch list</p>
+                    <p>Add new shows to your watch list</p>
                 </div>
 
                 <div className="manage">
                     <p className="header"><i>Manage</i></p>
-                    <p>You get to choose what shows stay and goes</p>
+                    <p>Choose what shows stay and go</p>
                 </div>
 
                 <div className="access">
                     <p className="header"><i>View</i></p>
-                    <p> View all shows that at once or sort by genre</p>
+                    <p> View all shows at once or sort by streaming service</p>
                 </div>
 
             </div>
