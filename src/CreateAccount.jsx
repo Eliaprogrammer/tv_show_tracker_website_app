@@ -1,7 +1,9 @@
 import './CreateAccount.css';
 import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 function NewAccount() {
+    const navigate = useNavigate();
     return(
         <div >
             <form className="form_design">
@@ -40,7 +42,7 @@ function NewAccount() {
                     <input type="password" />
                 </div>
 
-                <button className="signup_button" type="submit">Create Account</button>
+                <button className="signup_button" type="submit" onClick={()=>navigate("/new_user_dashboard")}>Create Account</button>
                 <button className="cancel_button" type="button">Cancel</button>
 
                 <div className="return">
@@ -49,9 +51,6 @@ function NewAccount() {
                 </div>
 
             </form>
-
-
-
 
         </div>
 

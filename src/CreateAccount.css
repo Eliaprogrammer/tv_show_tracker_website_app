@@ -5,13 +5,15 @@
     margin-right: auto;
     padding: 20px 60px 60px 40px;
 }
+
 .form_design .required{
     color: red;
+    margin-bottom: 10px;
 }
 
 .form_design p{
-    display: inline;
-    margin-bottom: clamp(70px,5vw, 45px);
+    display: inline-block;
+    margin-bottom: clamp(20px,5vw, 45px);
 }
 
 .form_design h1{
@@ -27,7 +29,7 @@
 
 .form_content label{
     font-family: "IM Fell French Canon", serif;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .form_content input{
