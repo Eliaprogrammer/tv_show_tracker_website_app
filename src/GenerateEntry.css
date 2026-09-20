@@ -42,3 +42,9 @@
     border-radius: 20px;
 }
 
+@media screen and (max-width: 320px){
+    .form_show_details{
+        width: 100%
+    }
+}
+

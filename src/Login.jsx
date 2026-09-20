@@ -1,7 +1,8 @@
 import './Login.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Login(){
+    const navigate = useNavigate();
     return(
         <div className="login_form">
 
@@ -37,7 +38,7 @@ function Login(){
 
 
                     <div className="form_group">
-                        <button className="login_submit" type="submit"> Submit</button>
+                        <button className="login_submit" type="submit" onClick={() => navigate("/dashboard")}> Submit</button>
 
                         <Link className="forgot" to="#">Forgot Password?</Link>
                     </div>
