@@ -1,0 +1,40 @@
+.dashboard{
+    display: flex;
+    justify-content: space-between;
+}
+
+.action_elements{
+    display:flex;
+    gap: 16px;
+}
+
+.edit img{
+    width: 35px;
+    height: 35px;
+}
+
+.delete img{
+    width: 35px;
+    height: 35px;
+}
+
+.profile img{
+    width: 35px;
+    height: 35px;
+}
+
+.leave{
+    display:flex;
+    margin-bottom: 5px;
+    font-size: 35px;
+}
+
+.leave p{
+    margin: 0;
+}
+
+@media screen and (max-width: 550px){
+    .dashboard{
+        width: 100%;
+    }
+}

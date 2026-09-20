@@ -8,12 +8,7 @@
 
 .form_design .required{
     color: red;
-    margin-bottom: 10px;
-}
-
-.form_design p{
-    display: inline-block;
-    margin-bottom: clamp(20px,5vw, 45px);
+    margin-bottom: 5px;
 }
 
 .form_design h1{
@@ -22,31 +17,41 @@
     font-size: 32px;
 }
 
+.form_design h5{
+    font-size: 15px;
+}
+
+.form_design p{
+    display: inline-block;
+    margin-bottom: clamp(5px,5vw, 10px);
+}
+
 .form_content{
     font-size: 20px;
-    padding-bottom: clamp(35px, 3vw, 38px)
+    padding-bottom: clamp(15px, 3vw, 18px)
 }
 
 .form_content label{
     font-family: "IM Fell French Canon", serif;
-    margin-top: 5px;
+    width: clamp(25px, 5vw, 30px);
 }
 
 .form_content input{
-    max-width: 100%;
+    width: clamp(455px, 5vw, 450px);
     padding: 10px 5px;
 }
 
 .form_content .show{
     display: block;
-    text-align: right;
+    text-align: center;
     margin-right: 60px;
+    color: cornflowerblue;
 }
 
 .signup_button{
     background-color: #496894;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-family: "Rubik", sans-serif;
     padding: 10px 35px;
     border: none;
@@ -56,10 +61,11 @@
 .cancel_button{
     background-color: #B14746;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-family: "Rubik", sans-serif;
-    padding: 10px 35px;
-    width: 170px;
+    padding: 10px 95px;
+    border: none;
+    /*max-width: 570px;*/
 }
 
 .return{
@@ -77,3 +83,9 @@
     color: cornflowerblue;
 }
 
+@media screen and (max-width:480px){
+    .form_content input{
+        width:100%;
+    }
+
+}
