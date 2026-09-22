@@ -1,28 +1,33 @@
-.entry-form p{
+.entry_form p{
     font-size: 50px;
     text-align: center;
 }
 
-.form-show-details{
+.form_show_details{
     background-color: #b0cbe6;
-    max-width: 500px;
-    margin-left: clamp(300px, 4vw, 200px);
-    margin-right: auto;
-    padding: 50px 100px 50px 30px;
+    max-width: 600px;
+    margin-left: clamp(200px, 4vw, 200px);
+    padding: 50px 100px 20px 30px;
 }
 
-.form-details input{
-    margin-bottom: 20px;
+.form_details label{
+    margin-right: 20px;
+}
+
+.form_details input{
+    margin-bottom: 40px;
     display: inline;
 }
 
-.form-show-details .save{
+.save{
     background-color: #1d3156;;
     color: white;
     width: 105px;
     height: 60px;
     font-size: 25px;
     border-radius: 20px;
+    margin-top: 40px;
+    margin-left: 400px;
 
 }
 
@@ -35,5 +40,11 @@
     margin-top: 10px;
     font-size: 25px;
     border-radius: 20px;
+}
+
+@media screen and (max-width: 320px){
+    .form_show_details{
+        width: 100%
+    }
 }
 

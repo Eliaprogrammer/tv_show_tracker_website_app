@@ -1,7 +1,7 @@
 import facebook from './assets/facebook.png';
 import instagram from './assets/Instagram_icon.png';
 import './Footer.css';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 function Footer(){
     return(
@@ -10,7 +10,7 @@ function Footer(){
             <div className="footer">
 
 
-                <div className="footerLinks">
+                <div className="footer_links">
                     <p>Getting Started</p>
                     <p>About us</p>
                 </div>
@@ -23,7 +23,7 @@ function Footer(){
                     <p>32703</p>
                 </div>
 
-                <div className="Images">
+                <div className="images">
                     <img src={facebook} alt = "An image of facebook logo"/>
                     <img src={instagram} alt = "An image of instagram logo"/>
                 </div>
@@ -35,8 +35,6 @@ function Footer(){
                 </div>
             </div>
         </div>
-
-
-    )
+    );
 }
 export default Footer;

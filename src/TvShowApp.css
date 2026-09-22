@@ -32,7 +32,7 @@ body{
   text-align: center;
 }
 
-.header p, .header p, .manage p, .access p{
+.account .header p, .add .header p, .manage .header p, .access header p{
   font-size: clamp(20px, 3vw, 27px);
   font-style: italic;
 
@@ -44,7 +44,7 @@ body{
 }
 
 
-.topButtons{
+.top_buttons{
   position: absolute;
   top:27px;
   right:3%;
@@ -58,10 +58,11 @@ body{
   margin-top: 63px;
 }
 
-.topLoginButton {
+.top_login_button {
   border: black solid 1px;
   border-radius: 5px;
   background-color: #496894;
+  color: black;
   padding: 8px 12px;
   margin-right: 10px;
   font-style: italic;
@@ -70,7 +71,7 @@ body{
 
 }
 
-.top_create_Account_Button{
+.top_create_account_button{
   border: black solid 1px;
   border-radius : 5px;
   background-color:#1d3156;
@@ -81,10 +82,11 @@ body{
 
 }
 
-.bottomLoginButton {
+.bottom_login_button {
   border: black solid 1px;
   border-radius: 5px;
   background-color: #496894;
+  color: black;
   padding: 8px 12px;
   margin-right: 10px;
   font-style: italic;

@@ -1,0 +1,63 @@
+.new_dashboard{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.menu{
+    background-color: #566888;
+    margin-top:0;
+    display: flex;
+    padding: 16px 12px;
+}
+
+.menu .menu_icon{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.menu h1{
+    color:white;
+    font-size: 64px;
+    margin-top: 0;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    margin-top:220px;
+    margin-bottom: 200px;
+    font-size: 50px;
+    text-align: center;
+}
+
+.user_actions{
+    display: block;
+}
+
+.logout{
+    display:flex;
+    margin-bottom: 5px;
+    font-size: 35px;
+}
+
+.logout p{
+    margin: 0;
+}
+
+.add_button{
+    display:flex;
+    right:1%;
+    justify-content: center;
+
+    width: 125px;
+    height: 125px;
+
+    background-color: #a4b5d1;
+    font-size: 60px;
+    padding: 35px;
+    border-radius: 50%;
+    border: none;
+}
+
