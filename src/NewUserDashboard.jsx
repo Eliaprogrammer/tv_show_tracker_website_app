@@ -29,7 +29,7 @@ function NewUserDashboard(){
 
         </div>
 
-    )
+    );
 }
 
 export default NewUserDashboard;

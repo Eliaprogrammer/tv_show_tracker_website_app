@@ -54,13 +54,13 @@ function NewAccount() {
 
         </div>
 
-    )
+    );
 }
 
 function Asterisk(){
             return(
                 <p className="required"> *</p>
-            )
+            );
 }
 
 export default NewAccount;

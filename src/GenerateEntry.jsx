@@ -63,6 +63,6 @@ function GenerateEntry(){
             <button type="button" className="back" >Back</button>
 
         </div>
-    )
+    );
 }
 export default GenerateEntry;

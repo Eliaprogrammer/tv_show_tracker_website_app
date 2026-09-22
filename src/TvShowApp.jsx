@@ -24,8 +24,7 @@ function TvShowApp() {
             <Header />
             <Body />
         </div>
-
-    )
+    );
 }
 function Header(){
     const navigate = useNavigate();
@@ -42,7 +41,7 @@ function Header(){
                 </button>
             </div>
         </>
-    )
+    );
 }
 
 function Body(){
@@ -80,7 +79,7 @@ function Body(){
                 </button>
             </div>
         </>
-    )
+    );
 }
 
-export default TvShowApp
+export default TvShowApp;

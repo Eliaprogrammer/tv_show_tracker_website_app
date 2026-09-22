@@ -7,7 +7,6 @@ import GenerateEntry from './GenerateEntry.jsx';
 import NewUserDashboard from './NewUserDashboard.jsx';
 import Dashboard from './Dashboard.jsx';
 
-
  function AppRouter(){
     return(
 
@@ -21,12 +20,11 @@ import Dashboard from './Dashboard.jsx';
                     <Route path="/generate_show" element={<GenerateEntry />} />
                     <Route path="/new_user_dashboard" element={<NewUserDashboard />} />
                     <Route path="/dashboard" element={<Dashboard/>} />
-
                 </Routes>
             </main>
 
             <Footer />
         </BrowserRouter>
-    )
+    );
 }
 export default AppRouter;
