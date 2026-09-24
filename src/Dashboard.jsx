@@ -6,6 +6,7 @@ import disgust from './assets/disgust.png';
 import { FaRegThumbsUp } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import './Dashboard.css';
+import allShowsList from './GenerateEntry.jsx';
 import {useState} from "react";
 
 function Dashboard(){
@@ -37,22 +38,44 @@ function Dashboard(){
                         <p>Sign out</p>
                     </div>
                 </div>
+
+                <DisplayShow />
             </div>
-            <div className="show_tile">
-                <div className="Hearts" style={{background: unselected}} onClick={() => setUnselected("Red")}>
-                    <FaRegHeart />
-                </div>
 
-                <div className="thumb_up">
-                    <FaRegThumbsUp />
-                </div>
-
-                <div className="disgust">
-                    <img src={disgust} alt="A picture of a disgust emoji" />
-                </div>
-
-            </div>
         </>
 
     );
-}export default Dashboard;
+}
+
+function DisplayShow(){
+    return(
+        <div className="show_tile">
+            <div className="row">
+                {allShowsList && allShowsList.map((showList) => (
+                    <div className="column" key={showList.id}>
+                        <h3>{showList.name_show}</h3>
+
+                        <div className="rate">
+                            <div className="Hearts" style={{background: unselected}} onClick={() => setUnselected("Red")}>
+                                <FaRegHeart />
+                            </div>
+
+                            <div className="thumb_up">
+                                <FaRegThumbsUp />
+                            </div>
+
+                            <div className="disgust">
+                                <img src={disgust} alt="A picture of a disgust emoji" />
+                            </div>
+
+                            <div className="view_details">
+                                <button type="button">View Information</button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+export default Dashboard;

@@ -33,6 +33,25 @@
     margin: 0;
 }
 
+.show_title{
+    background-color: #b0cbe6;
+    max-width: 200px;
+    height: 150px;
+    padding: 10px 10px;
+    display: inline-block;
+}
+
+.disgust img{
+    width: 15px;
+    height: 15px;
+}
+
+.view_details button{
+    background-color: #496894;
+    color: white;
+    padding: 10px 10px;
+}
+
 @media screen and (max-width: 550px){
     .dashboard{
         width: 100%;

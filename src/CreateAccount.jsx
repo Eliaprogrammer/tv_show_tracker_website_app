@@ -2,11 +2,22 @@ import './CreateAccount.css';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 
+function HandleRegister() {
+    return (
+        <>
+            event.preventDefault();
+            localStorage.setItem("full_name", full_name);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+            localStorage.setItem("re_enter", password);
+        </>
+    )
+}
 function NewAccount() {
     const navigate = useNavigate();
     return(
         <div >
-            <form className="form_design">
+            <form className="form_design" action={HandleRegister}>
                 <h1>Create Account</h1>
                 <h5>Get started with an account.</h5>
 
@@ -16,7 +27,7 @@ function NewAccount() {
                     <label>
                         First and Last Name: <Asterisk/>
                     </label>
-                    <input type="text" />
+                    <input type="text" required />
                 </div>
 
 
@@ -24,14 +35,14 @@ function NewAccount() {
                     <label>
                         Email address: <Asterisk/>
                     </label>
-                    <input type="email" />
+                    <input type="email" required/>
                 </div>
 
                 <div className ="form_content">
                     <label>
                         Password: <Asterisk/>
                     </label>
-                    <input type="password" />
+                    <input type="password" required/>
                     <Link className="show" to="#">Show Password</Link>
                 </div>
 
@@ -39,7 +50,7 @@ function NewAccount() {
                     <label>
                         Re-type Password: <Asterisk/>
                     </label>
-                    <input type="password" />
+                    <input type="password" required/>
                 </div>
 
                 <button className="signup_button" type="submit" onClick={()=>navigate("/new_user_dashboard")}>Create Account</button>

@@ -1,7 +1,19 @@
 import './Login.css';
 import {Link, useNavigate} from 'react-router-dom';
 
-function Login(){
+
+function HandleLogin(){
+    return(
+        <>
+            event.preventDefault();
+            localStorage.getItem("email");
+            localStorage.getItem("password");
+        </>
+    )
+
+}
+
+function Login (){
     const navigate = useNavigate();
     return(
         <div className="login_form">
@@ -10,7 +22,7 @@ function Login(){
 
             <div className="outer">
 
-                <form className="login_design">
+                <form className="login_design" action={HandleLogin}>
 
                     <div className="form_header">
                         <h2>Sign In</h2>
