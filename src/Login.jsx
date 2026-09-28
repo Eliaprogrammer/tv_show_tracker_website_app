@@ -2,19 +2,29 @@ import './Login.css';
 import {Link, useNavigate} from 'react-router-dom';
 
 
-function HandleLogin(){
-    return(
-        <>
-            event.preventDefault();
-            localStorage.getItem("email");
-            localStorage.getItem("password");
-        </>
-    )
-
-}
-
 function Login (){
     const navigate = useNavigate();
+
+    function handleLogin(event){
+        event.preventDefault();
+
+        const formAttributes = new FormData(event.currentTarget);
+
+        const verifyEmail = formAttributes.get("email");
+        const verifyPassword = formAttributes.get("password");
+
+        const accessEmail = localStorage.getItem("user_email");
+        const accessPassword = localStorage.getItem("user_password");
+
+        if (verifyEmail === accessEmail && verifyPassword === accessPassword){
+            navigate("/dashboard")
+            console.log("Login granted");
+        }
+        else{
+            console.log("Login denied");
+        }
+    }
+
     return(
         <div className="login_form">
 
@@ -22,7 +32,7 @@ function Login (){
 
             <div className="outer">
 
-                <form className="login_design" action={HandleLogin}>
+                <form className="login_design" onSubmit={handleLogin}>
 
                     <div className="form_header">
                         <h2>Sign In</h2>
@@ -34,7 +44,7 @@ function Login (){
                         <label>
                             Email address
                         </label>
-                        <input name="email" type="email"/>
+                        <input name="email" type="email" required/>
                     </div>
 
 
@@ -43,14 +53,14 @@ function Login (){
                             Password
                         </label>
 
-                        <input name="password" type="password"/>
+                        <input name="password" type="password" required/>
 
-                        <Link className="password" to="#" name="show ">Show password</Link>
+                        <Link className="password" to="#" name="show">Show password</Link>
                     </div>
 
 
                     <div className="form_group">
-                        <button className="login_submit" type="submit" onClick={() => navigate("/dashboard")}> Submit</button>
+                        <button className="login_submit" type="submit"> Submit</button>
 
                         <Link className="forgot" to="#">Forgot Password?</Link>
                     </div>

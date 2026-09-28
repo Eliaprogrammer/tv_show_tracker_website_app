@@ -2,22 +2,39 @@ import './CreateAccount.css';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 
-function HandleRegister() {
-    return (
-        <>
-            event.preventDefault();
-            localStorage.setItem("full_name", full_name);
-            localStorage.setItem("email", email);
-            localStorage.setItem("password", password);
-            localStorage.setItem("re_enter", password);
-        </>
-    )
-}
+
 function NewAccount() {
     const navigate = useNavigate();
+
+    function handleRegister(event) {
+
+        event.preventDefault();
+
+        const formAttributes = new FormData(event.currentTarget);
+
+
+        const user_full_name = formAttributes.get["full_name"];
+        const user_email = formAttributes.get["email"];
+        const user_password = formAttributes.get["password"];
+        const user_confirm_password = formAttributes.get["confirm_password"];
+
+        if(user_password !== user_confirm_password){
+            console.log("Account not established");
+            return;
+        }
+        localStorage.setItem("full_name", user_full_name);
+        localStorage.setItem("user_email",user_email);
+        localStorage.setItem("user_password", user_password);
+
+
+        navigate("/new_user_dashboard");
+        console.log("Account established");
+
+    }
+
     return(
         <div >
-            <form className="form_design" action={HandleRegister}>
+            <form className="form_design" onSubmit={handleRegister}>
                 <h1>Create Account</h1>
                 <h5>Get started with an account.</h5>
 
@@ -27,7 +44,7 @@ function NewAccount() {
                     <label>
                         First and Last Name: <Asterisk/>
                     </label>
-                    <input type="text" required />
+                    <input name="full_name" type="text" required />
                 </div>
 
 
@@ -35,14 +52,14 @@ function NewAccount() {
                     <label>
                         Email address: <Asterisk/>
                     </label>
-                    <input type="email" required/>
+                    <input name="email" type="email" required/>
                 </div>
 
                 <div className ="form_content">
                     <label>
                         Password: <Asterisk/>
                     </label>
-                    <input type="password" required/>
+                    <input name ="password" type="password" required />
                     <Link className="show" to="#">Show Password</Link>
                 </div>
 
@@ -50,10 +67,10 @@ function NewAccount() {
                     <label>
                         Re-type Password: <Asterisk/>
                     </label>
-                    <input type="password" required/>
+                    <input name="confirm_password" type="password" required/>
                 </div>
 
-                <button className="signup_button" type="submit" onClick={()=>navigate("/new_user_dashboard")}>Create Account</button>
+                <button className="signup_button" type="submit">Create Account</button>
                 <button className="cancel_button" type="button">Cancel</button>
 
                 <div className="return">
