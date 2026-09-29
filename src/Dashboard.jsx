@@ -6,11 +6,12 @@ import disgust from './assets/disgust.png';
 import { FaRegThumbsUp } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import './Dashboard.css';
-import allShowsList from './GenerateEntry.jsx';
-import {useState} from "react";
+import {useNavigate} from 'react-router-dom';
+
 
 function Dashboard(){
-    const [unselected, setUnselected] = useState("white");
+    // const [unselected, setUnselected] = useState("white");
+    const navigate = useNavigate();
 
     return(
         <>
@@ -18,13 +19,13 @@ function Dashboard(){
 
                 <MenuNav />
 
-                <div className="action_elements">
+                <div className="action_elements" onClick={() => navigate("/edit_show")}>
                     <div className="edit">
                         <img src={pencil} alt= "A picture of a pencil to indicate editing a show" />
                         <p>Edit</p>
                     </div>
 
-                    <div className="delete">
+                    <div className="delete" onClick={() => navigate("/delete_show")}>
                         <img src={deleting} alt="A image of a trash can to indicate deleting a show" />
                         <p>Delete</p>
                     </div>
@@ -39,7 +40,7 @@ function Dashboard(){
                     </div>
                 </div>
 
-                <DisplayShow />
+                <DisplayShow allShowsList={allShowsList} />
             </div>
 
         </>
@@ -47,12 +48,12 @@ function Dashboard(){
     );
 }
 
-function DisplayShow(){
+function DisplayShow({allShowsList}){
     return(
         <div className="show_tile">
             <div className="row">
-                {allShowsList && allShowsList.map((showList) => (
-                    <div className="column" key={showList.id}>
+                {allShowsList.map((showList, index) => (
+                    <div className="column" key={index}>
                         <h3>{showList.name_show}</h3>
 
                         <div className="rate">
