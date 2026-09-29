@@ -27,19 +27,26 @@
     font-size: 25px;
     border-radius: 20px;
     margin-top: 40px;
-    margin-left: 400px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
 .back{
-    display: block;
+    display: flex;
     background-color: #496894;
     color: white;
     width: 65px;
     height: 65px;
     margin-top: 10px;
+    margin-left: 25px;
+    padding: 35px 45px;
     font-size: 25px;
     border-radius: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 320px){

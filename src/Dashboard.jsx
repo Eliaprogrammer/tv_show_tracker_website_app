@@ -9,7 +9,7 @@ import './Dashboard.css';
 import {useNavigate} from 'react-router-dom';
 
 
-function Dashboard(){
+function Dashboard({allShowsList}){
     // const [unselected, setUnselected] = useState("white");
     const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ function Dashboard(){
     );
 }
 
-function DisplayShow({allShowsList}){
+function DisplayShow(){
     return(
         <div className="show_tile">
             <div className="row">

@@ -26,7 +26,7 @@ function MenuNav ({allShowsList}) {
                 {
                     title: "Streaming Service",
                     path: '/dashboard/streaming',
-                    services: streamingServices.map(service => ({
+                    subNav: streamingServices.map(service => ({
                         title: service,
                         path: `/dashboard/streaming/${service}`
                     }))

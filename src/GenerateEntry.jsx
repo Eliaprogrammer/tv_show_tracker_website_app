@@ -1,8 +1,9 @@
 import './GenerateEntry.css';
 import {useState} from 'react';
-
+import {useNavigate} from 'react-router-dom';
 
 function GenerateEntry({setAllShowsList}){
+    const navigate = useNavigate();
 
     const [seriesName, setSeriesName] = useState("");
     const [episode, setEpisode] = useState("");
@@ -21,6 +22,8 @@ function GenerateEntry({setAllShowsList}){
 
         setAllShowsList(prevShow => [...prevShow, series]);
 
+        console.log(series)
+
         setSeriesName("");
         setEpisode("");
         setSeasonNumber(0);
@@ -28,6 +31,8 @@ function GenerateEntry({setAllShowsList}){
         setStreaming("");
         setNumberEpisodeWatched(0)
         setWatched(false);
+
+        navigate('/dashboard');
 
     };
 

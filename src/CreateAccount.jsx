@@ -13,10 +13,10 @@ function NewAccount() {
         const formAttributes = new FormData(event.currentTarget);
 
 
-        const user_full_name = formAttributes.get["full_name"];
-        const user_email = formAttributes.get["email"];
-        const user_password = formAttributes.get["password"];
-        const user_confirm_password = formAttributes.get["confirm_password"];
+        const user_full_name = formAttributes.get("full_name");
+        const user_email = formAttributes.get("email");
+        const user_password = formAttributes.get("password");
+        const user_confirm_password = formAttributes.get("confirm_password");
 
         if(user_password !== user_confirm_password){
             console.log("Account not established");
