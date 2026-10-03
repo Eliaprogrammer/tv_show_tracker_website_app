@@ -8,7 +8,6 @@ import NewUserDashboard from './NewUserDashboard.jsx';
 import Dashboard from './Dashboard.jsx';
 import EditEntry from "./EditEntry.jsx";
 import DeleteEntry from "./DeleteEntry.jsx";
-import Confirmation from "./Confirmation.jsx";
 import {useState} from 'react';
 import MenuNav from "./MenuNav.jsx";
 
@@ -26,7 +25,7 @@ import MenuNav from "./MenuNav.jsx";
                     <Route path="/sign_in" element={<Login />} />
                     <Route path="/generate_show" element={<GenerateEntry setAllShowsList={setAllShowsList}/>} />
                     <Route path="/new_user_dashboard" element={<NewUserDashboard />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/dashboard" element={<Dashboard allShowsList={allShowsList}/>} />
                     <Route path="/update_show" element={<EditEntry allShowsList={allShowsList} />} />
                     <Route path="/delete_show" element={<DeleteEntry allShowsList={allShowsList}/>} />
                 </Routes>

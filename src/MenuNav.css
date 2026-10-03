@@ -8,9 +8,9 @@
     align-items: center;
 }
 
-.menu_labels{
-    font-size: 64px;
-    color: white;
+.sidebar_wrap{
+   font-size: 64px;
+   color: white;
 }
 
 .sub_menu{
@@ -19,25 +19,19 @@
     width: 100%;
 }
 
-.sub_menu.expanded{
-    background: #566888;
-}
-.submenu_item{
-    display: flex;
-    color: white;
-    font-size: 44px;
-}
-
 .dropdown_menu {
     font-size: 25px;
     width: 100%;
-    margin: 20px;
+    margin: 10px 15px;
+    padding: 15px;
+}
 
+.dropdown_menu:open{
     border-left: darkblue solid 2px;
     cursor: pointer;
-    color: #a4b5d1;
-
+    color: white;
 }
+
 .close_submenu{
     display:flex;
     justify-content: right;

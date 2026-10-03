@@ -1,4 +1,3 @@
-import MenuNav from './MenuNav';
 import pencil from './assets/pencil.png';
 import deleting from './assets/delete.png';
 import profile from './assets/profile.png';
@@ -10,17 +9,15 @@ import {useNavigate} from 'react-router-dom';
 
 
 function Dashboard({allShowsList}){
-    // const [unselected, setUnselected] = useState("white");
     const navigate = useNavigate();
+    console.log("allShowsList", allShowsList)
 
     return(
         <>
             <div className="dashboard">
 
-                <MenuNav />
-
-                <div className="action_elements" onClick={() => navigate("/edit_show")}>
-                    <div className="edit">
+                <div className="action_elements" >
+                    <div className="edit" onClick={() => navigate("/update_show")}>
                         <img src={pencil} alt= "A picture of a pencil to indicate editing a show" />
                         <p>Edit</p>
                     </div>
@@ -38,6 +35,9 @@ function Dashboard({allShowsList}){
                     <div className="leave">
                         <p>Sign out</p>
                     </div>
+
+                    <button className="add_button" onClick={()=> navigate("/generate_show")}>+</button>
+
                 </div>
 
                 <DisplayShow allShowsList={allShowsList} />
@@ -48,16 +48,16 @@ function Dashboard({allShowsList}){
     );
 }
 
-function DisplayShow(){
+function DisplayShow({allShowsList}){
     return(
-        <div className="show_tile">
+        <div className="show_title">
             <div className="row">
-                {allShowsList.map((showList, index) => (
+                {allShowsList.length > 0 &&  allShowsList.map((show, index) => (
                     <div className="column" key={index}>
-                        <h3>{showList.name_show}</h3>
+                        <h3>{show.seriesName}</h3>
 
                         <div className="rate">
-                            <div className="Hearts" style={{background: unselected}} onClick={() => setUnselected("Red")}>
+                            <div className="Hearts">
                                 <FaRegHeart />
                             </div>
 

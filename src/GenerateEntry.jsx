@@ -20,7 +20,13 @@ function GenerateEntry({setAllShowsList}){
             "ep_in_season": epInSeason, "streaming": streaming, "number_episode": numberEpisodeWatched,
             "completed_show": watched };
 
-        setAllShowsList(prevShow => [...prevShow, series]);
+        setAllShowsList(prevShows => {
+            const updatedShows = [...prevShows, series];
+
+            localStorage.setItem("allShowsList", JSON.stringify(updatedShows));
+
+            return updatedShows;
+        });
 
         console.log(series)
 
@@ -105,7 +111,7 @@ function GenerateEntry({setAllShowsList}){
 
             </form>
 
-            <button type="button" className="back" >Back</button>
+            <button type="button" className="back" onClick={()=>navigate('/dashboard')}>Back</button>
 
         </div>
     );
