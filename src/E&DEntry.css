@@ -1,0 +1,41 @@
+.update_button {
+    background: #1d3156;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    display: block;
+    margin: 20px 20px;
+}
+
+.delete{
+    background: #B14746;
+    color: white;
+    font-size: 30px;
+    display: block;
+    margin: 35px;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.alert{
+    background: #fed6ce;
+}
+
+.yes{
+    background: #496894;
+    color: white;
+}
+
+.undo{
+    background: #1d3156;
+    color: white;
+}
+
+.confirm_button{
+    margin: 35px;
+    font-size: 50px;
+    max-width: 400px;
+    max-height: 400px;
+    padding: 15px;
+}

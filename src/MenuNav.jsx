@@ -8,7 +8,7 @@ function MenuNav ({allShowsList}) {
     const [open, setOpen] = useState(false)
     const showMenu = () => setOpen(!open)
     console.log(allShowsList)
-    const streamingServices = JSON.parse(localStorage.getItem('allShowsList'));
+    const streamingServices = JSON.parse(localStorage.getItem('allShowsList')) || [];
     console.log(streamingServices, "streaming service");
 
 
