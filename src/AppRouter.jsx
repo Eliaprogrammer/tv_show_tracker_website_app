@@ -10,6 +10,8 @@ import EditEntry from "./EditEntry.jsx";
 import DeleteEntry from "./DeleteEntry.jsx";
 import {useState} from 'react';
 import MenuNav from "./MenuNav.jsx";
+import HandleRest from "./ResetPassword.jsx";
+import HandleChangePassword from "./NewPassword.jsx";
 
  function AppRouter(){
      const [allShowsList, setAllShowsList] = useState([])
@@ -23,6 +25,8 @@ import MenuNav from "./MenuNav.jsx";
                     <Route path="/" element={<TvShowApp />} />
                     <Route path="/create_account" element={<NewAccount />} />
                     <Route path="/sign_in" element={<Login />} />
+                    <Route path="/rest_password" element={<HandleRest /> } />
+                    <Route path='/new_password' element={<HandleChangePassword />} />
                     <Route path="/generate_show" element={<GenerateEntry setAllShowsList={setAllShowsList}/>} />
                     <Route path="/new_user_dashboard" element={<NewUserDashboard />} />
                     <Route path="/dashboard" element={<Dashboard allShowsList={allShowsList}/>} />

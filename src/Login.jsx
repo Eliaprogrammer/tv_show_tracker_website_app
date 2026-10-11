@@ -1,11 +1,12 @@
 import './Login.css';
 import {Link, useNavigate} from 'react-router-dom';
+import {SignInUser} from "./services/authService.js";
 
 
 function Login (){
     const navigate = useNavigate();
 
-    function handleLogin(event){
+    async function handleLogin(event){
         event.preventDefault();
 
         const formAttributes = new FormData(event.currentTarget);
@@ -13,15 +14,19 @@ function Login (){
         const verifyEmail = formAttributes.get("email");
         const verifyPassword = formAttributes.get("password");
 
-        const accessEmail = localStorage.getItem("user_email");
-        const accessPassword = localStorage.getItem("user_password");
+        try{
+            await SignInUser ({
+                email: verifyEmail,
+                password: verifyPassword,
+            })
 
-        if (verifyEmail === accessEmail && verifyPassword === accessPassword){
+
             navigate("/dashboard")
             console.log("Login granted");
-        }
-        else{
-            console.log("Login denied");
+
+
+        }catch(error){
+            console.log("Login denied", error.message);
         }
     }
 
@@ -62,7 +67,12 @@ function Login (){
                     <div className="form_group">
                         <button className="login_submit" type="submit"> Submit</button>
 
-                        <Link className="forgot" to="#">Forgot Password?</Link>
+                        <Link className="forgot" to={"/rest_password"}>Forgot Password?</Link>
+                    </div>
+
+                    <div className="return">
+                        <p>Don't have an account? </p>
+                        <Link className="already" to={"/create_account"}>Sign Up</Link>
                     </div>
 
                 </form>
