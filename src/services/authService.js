@@ -33,25 +33,27 @@ export async function SignInUser ({
     return data;
 }
 
-export async function RestorePassword ({email}){
-    const {data, error} = await supabase.auth.resetPasswordForEmail(email,
+export async function ForgotPassword({email}){
+    const redirectURL = import.meta.env.DEV ? "http://localhost:5173/new_password" :
+        "https://tv-show-tracker-website-app.vercel.app/"
+
+    const {data, error} = await supabase.auth.resetPasswordForEmail(
+        email,
         {
-            redirectTo: '/new_password',
-        })
-
-
-    if (error) throw error;
-
-    return data;
-
-}
-
-export async function ForgotPassword({secure_password}){
-    const {data, error} = await supabase.auth.updateUser({
-        password: secure_password,
+            redirectTo: redirectURL,
     })
 
     if(error) throw error;
+
+    return data;
+}
+
+export async function UpdatePassword({password}){
+    const {data, error} = await supabase.auth.updateUser({
+        password,
+    });
+
+    if (error) throw error;
 
     return data;
 }
