@@ -12,6 +12,7 @@ import {useState} from 'react';
 import MenuNav from "./MenuNav.jsx";
 import ResetForgotPassword from "./ForgotPassword.jsx";
 import NewPassword from "./NewPassword.jsx";
+import SignOut from "./SignOut.jsx";
 
  function AppRouter(){
      const [allShowsList, setAllShowsList] = useState([])
@@ -32,6 +33,7 @@ import NewPassword from "./NewPassword.jsx";
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/update_show" element={<EditEntry allShowsList={allShowsList} />} />
                     <Route path="/delete_show" element={<DeleteEntry allShowsList={allShowsList}/>} />
+                    <Route path="/sign_out" element={<SignOut />} />
                 </Routes>
             </main>
 
