@@ -4,12 +4,14 @@ import TvShowApp from './TvShowApp.jsx';
 import Login from './Login.jsx';
 import Footer from './Footer.jsx';
 import GenerateEntry from './GenerateEntry.jsx';
-import NewUserDashboard from './NewUserDashboard.jsx';
 import Dashboard from './Dashboard.jsx';
 import EditEntry from "./EditEntry.jsx";
 import DeleteEntry from "./DeleteEntry.jsx";
 import {useState} from 'react';
 import MenuNav from "./MenuNav.jsx";
+import ResetForgotPassword from "./ForgotPassword.jsx";
+import NewPassword from "./NewPassword.jsx";
+import SignOut from "./SignOut.jsx";
 
  function AppRouter(){
      const [allShowsList, setAllShowsList] = useState([])
@@ -23,11 +25,13 @@ import MenuNav from "./MenuNav.jsx";
                     <Route path="/" element={<TvShowApp />} />
                     <Route path="/create_account" element={<NewAccount />} />
                     <Route path="/sign_in" element={<Login />} />
+                    <Route path="/rest_password" element={<ResetForgotPassword /> } />
+                    <Route path='/new_password' element={<NewPassword />} />
                     <Route path="/generate_show" element={<GenerateEntry setAllShowsList={setAllShowsList}/>} />
-                    <Route path="/new_user_dashboard" element={<NewUserDashboard />} />
-                    <Route path="/dashboard" element={<Dashboard allShowsList={allShowsList}/>} />
+                    <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/update_show" element={<EditEntry allShowsList={allShowsList} />} />
                     <Route path="/delete_show" element={<DeleteEntry allShowsList={allShowsList}/>} />
+                    <Route path="/sign_out" element={<SignOut />} />
                 </Routes>
             </main>
 

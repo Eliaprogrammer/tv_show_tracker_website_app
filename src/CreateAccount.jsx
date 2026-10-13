@@ -1,17 +1,16 @@
 import './CreateAccount.css';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
-
+import {SignUpUser} from './services/authService.js';
 
 function NewAccount() {
     const navigate = useNavigate();
 
-    function handleRegister(event) {
+    async function handleRegister(event) {
 
         event.preventDefault();
 
         const formAttributes = new FormData(event.currentTarget);
-
 
         const user_full_name = formAttributes.get("full_name");
         const user_email = formAttributes.get("email");
@@ -19,17 +18,23 @@ function NewAccount() {
         const user_confirm_password = formAttributes.get("confirm_password");
 
         if(user_password !== user_confirm_password){
-            console.log("Account not established");
+            console.log("Password do not match");
             return;
         }
-        localStorage.setItem("full_name", user_full_name);
-        localStorage.setItem("user_email",user_email);
-        localStorage.setItem("user_password", user_password);
 
+        try{
+            await SignUpUser({
+                full_name: user_full_name,
+                email: user_email,
+                password: user_password,
+            });
 
-        navigate("/new_user_dashboard");
-        console.log("Account established");
-
+            console.log("Account established");
+            navigate("/dashboard");
+        }
+        catch(error){
+            console.error("Account not established", error.message)
+        }
     }
 
     return(
@@ -79,9 +84,7 @@ function NewAccount() {
                 </div>
 
             </form>
-
         </div>
-
     );
 }
 

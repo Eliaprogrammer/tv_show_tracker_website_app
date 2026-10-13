@@ -29,7 +29,7 @@ function DeleteEntry({allShowsList}){
                     <SaveSelect />
 
 
-                    <button className="delete" type="button" onClick={()=>setDisplayConfirmation(true)}>Delete</button>
+                    <button className="delete_button" type="button" onClick={()=>setDisplayConfirmation(true)}>Delete</button>
                     <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
                 </>
             ) : ( <Remove onCancel={()=>setDisplayConfirmation(false)} />
