@@ -4,7 +4,6 @@ import TvShowApp from './TvShowApp.jsx';
 import Login from './Login.jsx';
 import Footer from './Footer.jsx';
 import GenerateEntry from './GenerateEntry.jsx';
-import NewUserDashboard from './NewUserDashboard.jsx';
 import Dashboard from './Dashboard.jsx';
 import EditEntry from "./EditEntry.jsx";
 import DeleteEntry from "./DeleteEntry.jsx";
@@ -29,7 +28,6 @@ import SignOut from "./SignOut.jsx";
                     <Route path="/rest_password" element={<ResetForgotPassword /> } />
                     <Route path='/new_password' element={<NewPassword />} />
                     <Route path="/generate_show" element={<GenerateEntry setAllShowsList={setAllShowsList}/>} />
-                    <Route path="/new_user_dashboard" element={<NewUserDashboard />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/update_show" element={<EditEntry allShowsList={allShowsList} />} />
                     <Route path="/delete_show" element={<DeleteEntry allShowsList={allShowsList}/>} />
