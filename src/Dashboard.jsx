@@ -6,11 +6,33 @@ import { FaRegThumbsUp } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import './Dashboard.css';
 import {useNavigate} from 'react-router-dom';
+import {supabase} from "./lib/supabaseClient.js";
+import {useEffect, useState} from "react";
 
 
-function Dashboard({allShowsList}){
+function Dashboard(){
     const navigate = useNavigate();
-    console.log("allShowsList", allShowsList)
+
+    const [tv, setTv] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        async function DisplayShow() {
+            const {data, error} = await supabase.from('TV_Show').select('*')
+
+            if (error) {
+                console.error("Error fetching shows: " , error.message)
+                setError(error.message)
+            } else {
+                setTv(data)
+            }
+
+            setLoading(false)
+        }
+
+        DisplayShow()
+    }, [])
 
     return(
         <>
@@ -32,7 +54,7 @@ function Dashboard({allShowsList}){
                         <p>Profile</p>
                     </div>
 
-                    <div className="leave">
+                    <div className="leave" onClick={() => navigate("/sign_out")}>
                         <p>Sign out</p>
                     </div>
 
@@ -40,7 +62,19 @@ function Dashboard({allShowsList}){
 
                 </div>
 
-                <DisplayShow allShowsList={allShowsList} />
+                <div>
+                    {loading ? (
+                        <p>Loading...</p>
+                    ) : error ?(
+                            <p>Could not load show: {error}</p>
+                    ) : tv.length === 0 ? (
+                        <div className="text">
+                            <p>Add a show to view details</p>
+                        </div>
+                    ) : (
+                        <ShowTile allShowsList={tv} />
+                    )}
+                </div>
             </div>
 
         </>
@@ -48,13 +82,14 @@ function Dashboard({allShowsList}){
     );
 }
 
-function DisplayShow({allShowsList}){
+function ShowTile({allShowsList}){
+
     return(
         <div className="show_title">
             <div className="row">
-                {allShowsList.length > 0 &&  allShowsList.map((show, index) => (
-                    <div className="column" key={index}>
-                        <h3>{show.seriesName}</h3>
+                {allShowsList.map((show) => (
+                    <div className="column" key={show.id}>
+                        <h3>{show.ShowName}</h3>
 
                         <div className="rate">
                             <div className="Hearts">

@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import {SignUpUser} from './services/authService.js';
 
-
 function NewAccount() {
     const navigate = useNavigate();
 
@@ -23,7 +22,6 @@ function NewAccount() {
             return;
         }
 
-
         try{
             await SignUpUser({
                 full_name: user_full_name,
@@ -32,13 +30,11 @@ function NewAccount() {
             });
 
             console.log("Account established");
-            navigate("/new_user_dashboard");
+            navigate("/dashboard");
         }
         catch(error){
             console.error("Account not established", error.message)
         }
-
-
     }
 
     return(
@@ -88,9 +84,7 @@ function NewAccount() {
                 </div>
 
             </form>
-
         </div>
-
     );
 }
 
