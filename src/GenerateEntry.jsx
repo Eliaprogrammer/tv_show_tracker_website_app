@@ -1,6 +1,7 @@
 import './GenerateEntry.css';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import Navbar from "./Navbar.jsx";
 
 function GenerateEntry({setAllShowsList}){
     const navigate = useNavigate();
@@ -45,6 +46,10 @@ function GenerateEntry({setAllShowsList}){
     return(
 
         <div className="entry_form">
+
+            <div className="navbar">
+                <Navbar />
+            </div>
 
 
             <p>Enter Show Information to Keep Track</p>

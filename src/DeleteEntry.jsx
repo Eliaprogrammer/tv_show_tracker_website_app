@@ -3,6 +3,7 @@ import { IoMdUndo } from "react-icons/io";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import './E&DEntry.css'
+import Navbar from "./NavBar.jsx";
 
 function DeleteEntry({allShowsList}){
 
@@ -22,7 +23,9 @@ function DeleteEntry({allShowsList}){
     )
 
     return (
+
         <div>
+            <Navbar />
             {!displayConfirmation ? (
                 <>
                     <p>Please select a show to delete</p>
