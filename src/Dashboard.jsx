@@ -2,10 +2,9 @@ import disgust from './assets/disgust.png';
 import { FaRegThumbsUp } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import './Dashboard.css';
-import {supabase} from "./lib/supabaseClient.js";
 import {useEffect, useState} from "react";
 import Navbar from "./Navbar.jsx";
-
+import {FetchShowName} from './CRUD.jsx';
 
 function Dashboard(){
 
@@ -15,13 +14,12 @@ function Dashboard(){
 
     useEffect(() => {
         async function DisplayShow() {
-            const {data, error} = await supabase.from('TV_Show').select('*')
+            try{
+                setTv(await FetchShowName())
 
-            if (error) {
-                console.error("Error fetching shows: " , error.message)
+            } catch (error){
+                console.error("Error to display show: ", error.message);
                 setError(error.message)
-            } else {
-                setTv(data)
             }
 
             setLoading(false)
@@ -38,13 +36,13 @@ function Dashboard(){
                 <div>
                     {loading ? (
                         <p>Loading...</p>
+                    ) : error ? (
+                            <p>Could not load show: {error}</p>
                     ) : tv.length === 0 ? (
                         <div className="text">
                             <p>Add a show to view details</p>
                         </div>
-                    ) : error ?(
-                            <p>Could not load show: {error}</p>
-                    ) : (
+                    )  : (
                         <ShowTile allShowsList={tv} />
                     )}
                 </div>

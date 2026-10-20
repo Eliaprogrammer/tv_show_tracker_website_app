@@ -28,7 +28,7 @@ import UserProfile from "./Profile.jsx";
                     <Route path="/sign_in" element={<Login />} />
                     <Route path="/rest_password" element={<ResetForgotPassword /> } />
                     <Route path='/new_password' element={<NewPassword />} />
-                    <Route path="/generate_show" element={<GenerateEntry setAllShowsList={setAllShowsList}/>} />
+                    <Route path="/generate_show" element={<GenerateEntry />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/update_show" element={<EditEntry allShowsList={allShowsList} />} />
                     <Route path="/delete_show" element={<DeleteEntry allShowsList={allShowsList}/>} />
