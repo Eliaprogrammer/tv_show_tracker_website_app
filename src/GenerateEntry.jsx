@@ -1,8 +1,11 @@
 import './GenerateEntry.css';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import Navbar from "./Navbar.jsx";
+import {SaveShow} from "./CRUD.jsx";
 
-function GenerateEntry({setAllShowsList}){
+
+function GenerateEntry(){
     const navigate = useNavigate();
 
     const [seriesName, setSeriesName] = useState("");
@@ -13,38 +16,36 @@ function GenerateEntry({setAllShowsList}){
     const [numberEpisodeWatched, setNumberEpisodeWatched] = useState(0);
     const [watched, setWatched] = useState(false);
 
-    const generate = (event) =>{
+    async function generate (event) {
         event.preventDefault();
 
-        const series = {"name_show": seriesName, "episode": episode,"season": seasonNumber,
-            "ep_in_season": epInSeason, "streaming": streaming, "number_episode": numberEpisodeWatched,
-            "completed_show": watched };
+        const series = {
+            show_name: seriesName,
+            episode_name: episode,
+            season_number: seasonNumber,
+            eps_in_season: epInSeason,
+            streaming_service: streaming,
+            number_episodes_watched: numberEpisodeWatched,
+            series_completed: watched
+        };
 
-        setAllShowsList(prevShows => {
-            const updatedShows = [...prevShows, series];
-
-            localStorage.setItem("allShowsList", JSON.stringify(updatedShows));
-
-            return updatedShows;
-        });
-
-        console.log(series)
-
-        setSeriesName("");
-        setEpisode("");
-        setSeasonNumber(0);
-        setEpInSeason(0);
-        setStreaming("");
-        setNumberEpisodeWatched(0)
-        setWatched(false);
-
-        navigate('/dashboard');
-
-    };
+        try{
+            await SaveShow(series);
+            console.log("Saved", series)
+            navigate('/dashboard');
+        }
+        catch(error){
+            console.error("Can't add TV show");
+        }
+    }
 
     return(
 
         <div className="entry_form">
+
+            <div className="navbar">
+                <Navbar />
+            </div>
 
 
             <p>Enter Show Information to Keep Track</p>

@@ -3,6 +3,7 @@ import {IoMdUndo} from "react-icons/io";
 import {useNavigate} from "react-router-dom";
 import {useState} from 'react';
 import './E&DEntry.css'
+import Navbar from "./NavBar.jsx";
 
 
 function EditEntry({allShowsList}){
@@ -22,6 +23,7 @@ function EditEntry({allShowsList}){
 
     return(
         <div>
+            <Navbar />
             {!displayConfirmation ? (
                 <>
                     <p>Please select a show to Edit</p>
