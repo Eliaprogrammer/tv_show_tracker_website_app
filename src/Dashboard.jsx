@@ -15,7 +15,8 @@ function Dashboard(){
     useEffect(() => {
         async function DisplayShow() {
             try{
-                setTv(await FetchShowName())
+                const title = await FetchShowName()
+                setTv(title);
 
             } catch (error){
                 console.error("Error to display show: ", error.message);
@@ -60,7 +61,7 @@ function ShowTile({allShowsList}){
             <div className="row">
                 {allShowsList.map((show) => (
                     <div className="column" key={show.id}>
-                        <h3>{show.ShowName}</h3>
+                        <h3>{show.show_name}</h3>
 
                         <div className="rate">
                             <div className="Hearts">

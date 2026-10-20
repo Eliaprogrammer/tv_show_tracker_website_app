@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import Navbar from "./Navbar.jsx";
 import {SaveShow} from "./CRUD.jsx";
 
+
 function GenerateEntry(){
     const navigate = useNavigate();
 
@@ -18,27 +19,15 @@ function GenerateEntry(){
     async function generate (event) {
         event.preventDefault();
 
-        // const series = {"name_show": seriesName, "episode": episode,"season": seasonNumber,
-        //     "ep_in_season": epInSeason, "streaming": streaming, "number_episode": numberEpisodeWatched,
-        //     "completed_show": watched };
-
         const series = {
-            ShowName: "name_show",
-            EpisodeName: "episode",
-            SeasonNumber: "season",
-            EpsInSeason: "ep_in_season",
-            StreamingService: "streaming",
-            NumEpWatched: "watched",
-            SeriesCompleted: "completed_show"
-        }
-
-        // setAllShowsList(prevShows => {
-        //     const updatedShows = [...prevShows, series];
-        //
-        //     localStorage.setItem("allShowsList", JSON.stringify(updatedShows));
-        //
-        //     return updatedShows;
-        // });
+            show_name: seriesName,
+            episode_name: episode,
+            season_number: seasonNumber,
+            eps_in_season: epInSeason,
+            streaming_service: streaming,
+            number_episodes_watched: numberEpisodeWatched,
+            series_completed: watched
+        };
 
         try{
             await SaveShow(series);
@@ -48,18 +37,6 @@ function GenerateEntry(){
         catch(error){
             console.error("Can't add TV show");
         }
-
-
-
-
-        // setSeriesName("");
-        // setEpisode("");
-        // setSeasonNumber(0);
-        // setEpInSeason(0);
-        // setStreaming("");
-        // setNumberEpisodeWatched(0)
-        // setWatched(false);
-
     }
 
     return(
