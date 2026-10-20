@@ -31,7 +31,7 @@ import UserProfile from "./Profile.jsx";
                     <Route path="/generate_show" element={<GenerateEntry />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/update_show" element={<EditEntry allShowsList={allShowsList} />} />
-                    <Route path="/delete_show" element={<DeleteEntry allShowsList={allShowsList}/>} />
+                    <Route path="/delete_show" element={<DeleteEntry />} />
                     <Route path="/sign_out" element={<SignOut />} />
                     <Route path="/profile" element={<UserProfile />} />
                 </Routes>
