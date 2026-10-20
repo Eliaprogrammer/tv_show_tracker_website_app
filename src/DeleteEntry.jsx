@@ -3,7 +3,7 @@ import { IoMdUndo } from "react-icons/io";
 import {useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import './E&DEntry.css'
-import Navbar from "./NavBar.jsx";
+import Navbar from "./Navbar.jsx";
 import {DeleteShow, FetchShowName} from "./CRUD.jsx";
 
 function DeleteEntry(){
