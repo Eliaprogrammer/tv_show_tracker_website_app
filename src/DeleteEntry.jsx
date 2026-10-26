@@ -16,12 +16,8 @@ function DeleteEntry(){
     useEffect(() => {
         async function Title() {
             try{
-
-                for (const optionChoice of option) {
-                    const title = await FetchShowName()
-                    setOption(title);
-                }
-
+                const title = await FetchShowName()
+                setOption(title);
             } catch (error){
                 console.error("Error to display show: ", error.message);
 
