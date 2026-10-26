@@ -32,7 +32,7 @@ body{
   text-align: center;
 }
 
-.account .header p, .add .header p, .manage .header p, .access header p{
+.account .header link, .add .header link, .manage .header link, .access .header link{
   font-size: clamp(20px, 3vw, 27px);
   font-style: italic;
 
@@ -41,65 +41,4 @@ body{
 .account p, .add p, .manage p,.access p{
   margin-top: 15px;
   font-size: clamp(18px, 3vw, 27px);
-}
-
-
-.top_buttons{
-  position: absolute;
-  top:27px;
-  right:3%;
-  display:flex;
-  align-items:center;
-}
-.bottomButtons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 63px;
-}
-
-.top_login_button {
-  border: black solid 1px;
-  border-radius: 5px;
-  background-color: #496894;
-  color: black;
-  padding: 8px 12px;
-  margin-right: 10px;
-  font-style: italic;
-  font-size: clamp(14px, 1.5vw, 16px);
-
-
-}
-
-.top_create_account_button{
-  border: black solid 1px;
-  border-radius : 5px;
-  background-color:#1d3156;
-  color: white;
-  padding: 8px 12px;
-  font-size: clamp(11px, 1.5vw, 14px);
-  font-family: "Rubik", sans-serif;
-
-}
-
-.bottom_login_button {
-  border: black solid 1px;
-  border-radius: 5px;
-  background-color: #496894;
-  color: black;
-  padding: 8px 12px;
-  margin-right: 10px;
-  font-style: italic;
-  font-size: clamp(18px, 3vw, 24px);
-
-}
-
-.bottom_create_Account_Button{
-  border: black solid 1px;
-  border-radius : 5px;
-  background-color:#1d3156;
-  color: white;
-  padding: 8px 11px;
-  font-size: clamp(16px, 2.5vw, 21px);
-  font-family: "Rubik", sans-serif;
 }

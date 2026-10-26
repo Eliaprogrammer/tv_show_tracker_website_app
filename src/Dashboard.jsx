@@ -5,8 +5,10 @@ import './Dashboard.css';
 import {useEffect, useState} from "react";
 import Navbar from "./Navbar.jsx";
 import {FetchShowName} from './CRUD.jsx';
+import {useNavigate} from "react-router-dom";
 
 function Dashboard(){
+
 
     const [tv, setTv] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -55,6 +57,7 @@ function Dashboard(){
 }
 
 function ShowTile({allShowsList}){
+    const navigate = useNavigate();
 
     return(
         <div className="show_title">
@@ -77,7 +80,7 @@ function ShowTile({allShowsList}){
                             </div>
 
                             <div className="view_details">
-                                <button type="button">View Information</button>
+                                <button type="button" onClick={() => navigate("/show")}>View Information</button>
                             </div>
                         </div>
                     </div>

@@ -56,7 +56,7 @@ export async function DeleteShow (showID){
     }
 
     if(!data || data.length === 0){
-        throw new error (
+        throw new Error (
             "Show does not exist"
         )
     }
@@ -64,13 +64,14 @@ export async function DeleteShow (showID){
     return data;
 }
 
-export async function UpdateShow(Name, UpdateField){
+export async function UpdateShow(id, showFields){
+
     const {data, error} = await supabase.from('TV_Show')
-        .update(UpdateField).eq("show_name", name)
+        .update(showFields).eq("id", id ).select();
 
     if(error){
         console.error("Error while updating show: ", error.message);
-        return null;
+        throw new Error('Error during update', error.message);
     }
 
     return data;

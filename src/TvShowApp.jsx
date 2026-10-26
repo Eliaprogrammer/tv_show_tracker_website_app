@@ -1,10 +1,8 @@
 "use client"
 import React from 'react';
 import {useMediaQuery} from 'react-responsive';
-import {useNavigate} from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
 import './TvShowApp.css';
-
 
 const Responsiveness = () =>{
     const isDesktopOrLaptop = useMediaQuery({
@@ -27,56 +25,40 @@ function TvShowApp() {
     );
 }
 function Header(){
-    const navigate = useNavigate();
-    return(
+        return(
         <>
             <div className="heading">
                 <h1>TV Show Tracker</h1>
-            </div>
-
-            <div className="top_buttons">
-                <button className="top_login_button" type="submit" onClick={()=>navigate("/sign_in")}> Login</button>
-                <button className="top_create_account_button" onClick={()=>navigate("/create_account")}>
-                    Create Account
-                </button>
             </div>
         </>
     );
 }
 
 function Body(){
-    const navigate = useNavigate();
     return(
         <>
             <div className="content">
 
                 <div className="account">
-                    <p className="header"><i>Create an account or login</i></p>
+                    <Link to="/sign_in" className="header"><i>Create an account or login</i></Link>
                     <p>All your show in one place</p>
                 </div>
 
                 <div className="add">
-                    <p className="header"><i>Add</i></p>
+                    <Link to="/generate_show" className="header"><i>Add</i></Link>
                     <p>Add new shows to your watch list</p>
                 </div>
 
                 <div className="manage">
-                    <p className="header"><i>Manage</i></p>
+                    <Link to="delete_show" className="header"><i>Manage</i></Link>
                     <p>Choose what shows stay and go</p>
                 </div>
 
                 <div className="access">
-                    <p className="header"><i>View</i></p>
+                    <Link to="/dashboard" className="header"><i>View</i></Link>
                     <p> View all shows at once or sort by streaming service</p>
                 </div>
 
-            </div>
-
-            <div className="bottomButtons">
-                <button className="bottom_login_button" onClick={()=>navigate("/sign_in")}> Login </button>
-                <button className="bottom_create_Account_Button" onClick={() => navigate("/create_account")}>
-                    Create Account
-                </button>
             </div>
         </>
     );

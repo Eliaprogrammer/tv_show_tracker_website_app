@@ -21,7 +21,7 @@ function Login (){
             })
 
 
-            navigate("/dashboard")
+            navigate("/")
             console.log("Login granted");
 
 

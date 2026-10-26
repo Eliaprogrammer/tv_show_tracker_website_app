@@ -13,6 +13,7 @@ import ResetForgotPassword from "./ForgotPassword.jsx";
 import NewPassword from "./NewPassword.jsx";
 import SignOut from "./SignOut.jsx";
 import UserProfile from "./Profile.jsx";
+import ShowDetails from "./Show.jsx";
 
  function AppRouter(){
      const [allShowsList, setAllShowsList] = useState([])
@@ -30,10 +31,11 @@ import UserProfile from "./Profile.jsx";
                     <Route path='/new_password' element={<NewPassword />} />
                     <Route path="/generate_show" element={<GenerateEntry />} />
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/update_show" element={<EditEntry allShowsList={allShowsList} />} />
+                    <Route path="/update_show" element={<EditEntry />} />
                     <Route path="/delete_show" element={<DeleteEntry />} />
                     <Route path="/sign_out" element={<SignOut />} />
                     <Route path="/profile" element={<UserProfile />} />
+                    <Route path="/show" element={<ShowDetails />} />
                 </Routes>
             </main>
 
