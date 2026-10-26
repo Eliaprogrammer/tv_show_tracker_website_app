@@ -30,7 +30,7 @@ function NewAccount() {
             });
 
             console.log("Account established");
-            navigate("/dashboard");
+            navigate("/");
         }
         catch(error){
             console.error("Account not established", error.message)
