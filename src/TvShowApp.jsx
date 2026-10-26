@@ -1,10 +1,8 @@
 "use client"
 import React from 'react';
 import {useMediaQuery} from 'react-responsive';
-import {Link, useNavigate} from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
 import './TvShowApp.css';
-
 
 const Responsiveness = () =>{
     const isDesktopOrLaptop = useMediaQuery({

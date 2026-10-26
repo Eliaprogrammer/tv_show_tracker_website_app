@@ -4,8 +4,7 @@ import { FaRegHeart } from "react-icons/fa6";
 import './Dashboard.css';
 import {useEffect, useState} from "react";
 import Navbar from "./Navbar.jsx";
-import {FetchShow, FetchShowName} from './CRUD.jsx';
-import ShowDetails from "./Show.jsx";
+import {FetchShowName} from './CRUD.jsx';
 import {useNavigate} from "react-router-dom";
 
 function Dashboard(){
