@@ -76,3 +76,51 @@ export async function UpdateShow(id, showFields){
 
     return data;
 }
+
+export async function FilterShowsAlphabetically(){
+    const {data, error} = await supabase.from('TV_Show')
+        .select('id, show_name').order('show_name', {ascending: true});
+    if(error){
+        throw new Error("Error while sorting shows in ascending order");
+    }
+
+    return data;
+}
+
+export async function FilterStreamingService() {
+    const {data: filter_by_service, error: service_error} = await supabase.from('TV_Show')
+        .select('streaming_service, series_completed');
+
+    //.eq()
+    //.matches()
+    //.overlaps()
+    if(service_error){
+        throw new Error("Error while filtering shows");
+    }
+
+    return filter_by_service;
+}
+
+export async function FilterSeriesWatched(){
+    const {data: filter_by_series_completed, error: completed_error} = await supabase.from('TV_Show')
+        .select('series_complete')
+
+    if(completed_error) {
+        throw new Error('Error while filtering shows by series_completed');
+    }
+    return filter_by_series_completed;
+}
+
+export async function FetchStreamingService(){
+    const {data, error} = await supabase.from('TV_Show')
+        .select('streaming_service');
+
+    if(error){
+        throw new Error("Error while fetching streaming service names");
+    }
+
+    const removeDuplicates = [...new Set(
+        data.map(show => show.streaming_serivce))];
+
+    return removeDuplicates;
+}

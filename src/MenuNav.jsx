@@ -1,15 +1,55 @@
 import { IoMdMenu } from "react-icons/io";
 import { IoCloseCircle } from "react-icons/io5";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './MenuNav.css';
+import {FilterSeriesWatched, FilterShowsAlphabetically, FilterStreamingService, FetchStreamingService} from "./CRUD.jsx";
 
-function MenuNav ({allShowsList}) {
+function MenuNav () {
 
     const [open, setOpen] = useState(false)
     const showMenu = () => setOpen(!open)
-    console.log(allShowsList)
-    const streamingServices = JSON.parse(localStorage.getItem('allShowsList')) || [];
-    console.log(streamingServices, "streaming service");
+    const [filterShows, setFilterShows] = useState([])
+    // console.log(allShowsList)
+    // const streamingServices = JSON.parse(localStorage.getItem('allShowsList')) || [];
+    const [streamingServices, setStreamingService] = useState([]);
+
+
+
+    async function HandleMenu(condition, service){
+        try{
+            if(condition === "Alphabetical"){
+                const sort = await FilterShowsAlphabetically();
+                setFilterShows(sort);
+            }
+            else if(condition === "Streaming Service"){
+                const sortStreamingService = await FilterStreamingService();
+                setFilterShows(sortStreamingService);
+            }
+            else if(condition === "Shows Watched/Finished"){
+                const sortWatchedShows = await FilterSeriesWatched();
+                setFilterShows(sortWatchedShows);
+            }
+        }
+        catch(error){
+            console.log(error.message);
+        }
+    }
+
+    useEffect(() =>{
+        async function LoadStreamingService(){
+            try{
+                const platform = await FetchStreamingService();
+                setStreamingService(platform);
+
+            }
+            catch(error){
+                console.log(error.message);
+            }
+        }
+        LoadStreamingService();
+
+    }, []);
+
 
 
     const menu_labels=[
@@ -20,21 +60,26 @@ function MenuNav ({allShowsList}) {
             subNav: [
                 {
                     title: "Alphabetical",
-                    path: '/dashboard/alphabetical'
+                    path: '/dashboard/alphabetical',
+                    condition: "Alphabetical"
 
                 },
                 {
                     title: "Streaming Service",
                     path: '/dashboard/streaming',
                     subNav: streamingServices.map(service => ({
-                        title: service.streaming,
-                        path: `/dashboard/streaming/${service.streaming}`
-                    }))
+                        title: service,
+                        path: `/dashboard/streaming/${service}`,
+                        condition: "Streaming Service",
+                        streaming: service
+                    })),
+
                 },
 
                 {
                     title: "Shows Watched/Finished",
-                    path: '/dashboard/finished'
+                    path: '/dashboard/finished',
+                    condition: "Shows Watched/Finished"
                 }
             ]
         }
@@ -45,15 +90,22 @@ function MenuNav ({allShowsList}) {
            <div className="nav" onClick={showMenu}>
                <div className="sidebar_wrap">
                    {menu_labels.map((item, index) => (
-                       <SubMenu item={item} key={index} />
+                       <SubMenu item={item} key={index} HandleMenu={HandleMenu} />
                    ))}
                </div>
            </div>
+            <div>
+                {filterShows.map((item) => (
+                    <div key={item.id}>
+                        {item.show_name}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
 
-function SubMenu  ({item}) {
+function SubMenu  ({item, HandleMenu}) {
     const [subMenu, setSubMenu] = useState(false);
 
     const showSubMenu = () => setSubMenu(!subMenu)
@@ -62,7 +114,12 @@ function SubMenu  ({item}) {
 
         <div className={`sub_menu `}>
 
-            <div className="submenu_item" onClick={() => setSubMenu(true)}>
+            <div className="submenu_item" onClick={() =>
+            {setSubMenu(true);
+                if(item.condition){
+                    HandleMenu(item.condition, item.streaming);
+                }
+            }}>
                 <span className="submenu_icon">{item.icon}</span>
                 <span className="submenu_title">{item.title}</span>
 
@@ -77,7 +134,7 @@ function SubMenu  ({item}) {
                     </div>
 
                     {item.subNav.map((sub, index) =>(
-                        <SubMenu item={sub} key={index} />
+                        <SubMenu item={sub} key={index} HandleMenu={HandleMenu}/>
                     ))}
                 </div>
             )}
