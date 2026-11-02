@@ -6,7 +6,6 @@ import './PopUp.css';
     return ( props.trigger) ? (
         <div className="pop_up">
             <div className="pop_up_inner">
-                <button className="close_button"onClick={()=>props.setTrigger(false)}> <IoCloseCircle /> </button>
                 {props.children}
             </div>
         </div>
@@ -18,8 +17,8 @@ function PopUpAction(){
 
     useEffect(()=> {
         setTimeout(()=> {
-            setTimePopup(true);
-        }, 300);
+            setTimePopUp(true);
+        }, 800);
 
     }, [])
     return(

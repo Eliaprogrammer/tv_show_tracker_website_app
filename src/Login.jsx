@@ -2,10 +2,12 @@ import './Login.css';
 import {Link, useNavigate} from 'react-router-dom';
 import {SignInUser} from "./services/authService.js";
 import PopUpAction from "./PopUp.jsx";
+import {useState} from "react";
 
 
 function Login (){
     const navigate = useNavigate();
+    const [displayPopUp, setDisplayPopUp] = useState(false);
 
     async function handleLogin(event){
         event.preventDefault();
@@ -23,12 +25,8 @@ function Login (){
 
 
             console.log("Login granted");
-            <PopUpAction />
-            navigate("/")
-
-
-
-
+            setDisplayPopUp(true);
+            setTimeout(() => navigate("/"), 3000);
         }catch(error){
             console.log("Login denied", error.message);
         }
@@ -82,6 +80,7 @@ function Login (){
                 </form>
 
             </div>
+            {displayPopUp && <PopUpAction />}
 
         </div>
     );

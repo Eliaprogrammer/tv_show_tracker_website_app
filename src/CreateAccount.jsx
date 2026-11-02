@@ -2,9 +2,12 @@ import './CreateAccount.css';
 import {Link} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import {SignUpUser} from './services/authService.js';
+import {useState} from "react";
+import PopUpAction from "./PopUp.jsx";
 
 function NewAccount() {
     const navigate = useNavigate();
+    const [displayPopUp, setDisplayPopUp] = useState(false);
 
     async function handleRegister(event) {
 
@@ -30,7 +33,8 @@ function NewAccount() {
             });
 
             console.log("Account established");
-            navigate("/");
+            setDisplayPopUp(true);
+            setTimeout(() => navigate("/"), 3000);
         }
         catch(error){
             console.error("Account not established", error.message)
@@ -84,6 +88,8 @@ function NewAccount() {
                 </div>
 
             </form>
+
+            {displayPopUp && <PopUpAction />}
         </div>
     );
 }

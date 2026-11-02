@@ -109,14 +109,14 @@ export async function FilterSeriesWatched(){
 
 export async function FetchStreamingService(){
     const {data, error} = await supabase.from('TV_Show')
-        .select('steaming_service');
+        .select('streaming_service');
 
     if(error){
         throw new Error("Error while fetching streaming service names");
     }
 
     const removeDuplicates = [...new Set(
-        data.map(show => show.streaming_serivce))];
+        data.map(show => show.streaming_service))];
 
     return removeDuplicates;
 }
