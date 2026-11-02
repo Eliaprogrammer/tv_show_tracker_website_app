@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import Navbar from "./Navbar.jsx";
 import {FetchShowName} from './CRUD.jsx';
 import {useNavigate} from "react-router-dom";
+import MenuNav from './MenuNav.jsx';
 
 function Dashboard(){
 
@@ -34,13 +35,14 @@ function Dashboard(){
     return(
         <>
             <div className="dashboard">
+               <MenuNav />
                 <Navbar/>
 
                 <div>
                     {loading ? (
                         <p>Loading...</p>
                     ) : error ? (
-                            <p>Could not load show: {error}</p>
+                            <p>Could not load show(s): You have to be sign in  <Link to="/"> Go to Home Page</Link></p>
                     ) : tv.length === 0 ? (
                         <div className="text">
                             <p>Add a show to view details</p>

@@ -7,8 +7,6 @@ import GenerateEntry from './GenerateEntry.jsx';
 import Dashboard from './Dashboard.jsx';
 import EditEntry from "./EditEntry.jsx";
 import DeleteEntry from "./DeleteEntry.jsx";
-import {useState} from 'react';
-import MenuNav from "./MenuNav.jsx";
 import ResetForgotPassword from "./ForgotPassword.jsx";
 import NewPassword from "./NewPassword.jsx";
 import SignOut from "./SignOut.jsx";
@@ -16,11 +14,9 @@ import UserProfile from "./Profile.jsx";
 import ShowDetails from "./Show.jsx";
 
  function AppRouter(){
-     const [allShowsList, setAllShowsList] = useState([])
     return(
 
         <BrowserRouter>
-            <MenuNav allShowsList={allShowsList} />
 
             <main>
                 <Routes>

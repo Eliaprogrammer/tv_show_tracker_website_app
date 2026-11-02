@@ -9,10 +9,7 @@ function MenuNav () {
     const [open, setOpen] = useState(false)
     const showMenu = () => setOpen(!open)
     const [filterShows, setFilterShows] = useState([])
-    // console.log(allShowsList)
-    // const streamingServices = JSON.parse(localStorage.getItem('allShowsList')) || [];
     const [streamingServices, setStreamingService] = useState([]);
-
 
 
     async function HandleMenu(condition, service){
@@ -55,21 +52,21 @@ function MenuNav () {
     const menu_labels=[
         {
             title: "Menu",
-            path: '/dashboard',
+            link: '/dashboard',
             icon: <IoMdMenu/>,
             subNav: [
                 {
                     title: "Alphabetical",
-                    path: '/dashboard/alphabetical',
+                    link: '/dashboard/alphabetically',
                     condition: "Alphabetical"
 
                 },
                 {
                     title: "Streaming Service",
-                    path: '/dashboard/streaming',
+                    link: '/dashboard/streaming',
                     subNav: streamingServices.map(service => ({
                         title: service,
-                        path: `/dashboard/streaming/${service}`,
+                        path: `/dashboard/${service}`,
                         condition: "Streaming Service",
                         streaming: service
                     })),
@@ -78,7 +75,7 @@ function MenuNav () {
 
                 {
                     title: "Shows Watched/Finished",
-                    path: '/dashboard/finished',
+                    link: '/dashboard',
                     condition: "Shows Watched/Finished"
                 }
             ]
@@ -93,14 +90,15 @@ function MenuNav () {
                        <SubMenu item={item} key={index} HandleMenu={HandleMenu} />
                    ))}
                </div>
+
+               <div>
+                   {filterShows.map((item) => (
+                       <div key={item.id}>
+                           {item.show_name}
+                       </div>
+                   ))}
+               </div>
            </div>
-            <div>
-                {filterShows.map((item) => (
-                    <div key={item.id}>
-                        {item.show_name}
-                    </div>
-                ))}
-            </div>
         </div>
     );
 }
@@ -134,7 +132,9 @@ function SubMenu  ({item, HandleMenu}) {
                     </div>
 
                     {item.subNav.map((sub, index) =>(
-                        <SubMenu item={sub} key={index} HandleMenu={HandleMenu}/>
+                        <SubMenu item={sub} key={index} HandleMenu={HandleMenu} />
+                        // <ShowTile />
+
                     ))}
                 </div>
             )}

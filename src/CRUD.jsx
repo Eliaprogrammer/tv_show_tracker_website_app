@@ -87,13 +87,9 @@ export async function FilterShowsAlphabetically(){
     return data;
 }
 
-export async function FilterStreamingService() {
+export async function FilterStreamingService(platform) {
     const {data: filter_by_service, error: service_error} = await supabase.from('TV_Show')
-        .select('streaming_service, series_completed');
-
-    //.eq()
-    //.matches()
-    //.overlaps()
+        .eq('streaming_service', platform ).select('streaming_service, series_completed');
     if(service_error){
         throw new Error("Error while filtering shows");
     }
@@ -103,7 +99,7 @@ export async function FilterStreamingService() {
 
 export async function FilterSeriesWatched(){
     const {data: filter_by_series_completed, error: completed_error} = await supabase.from('TV_Show')
-        .select('series_complete')
+        .eq('series_complete', true).select('show_name')
 
     if(completed_error) {
         throw new Error('Error while filtering shows by series_completed');
@@ -113,7 +109,7 @@ export async function FilterSeriesWatched(){
 
 export async function FetchStreamingService(){
     const {data, error} = await supabase.from('TV_Show')
-        .select('streaming_service');
+        .select('steaming_service');
 
     if(error){
         throw new Error("Error while fetching streaming service names");

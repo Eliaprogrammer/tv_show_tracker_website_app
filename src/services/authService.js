@@ -64,3 +64,20 @@ export async function SignOutUser(){
     });
     if(error) throw error;
 }
+
+export async function ProfileInfo(){
+    const {data: {user}, error} = await supabase.auth.getUser();
+    let metadata = user?.user_metadata;
+
+    if(error) throw error;
+
+    return metadata;
+}
+
+// export async function UpdateProfile(updateAttribute){
+//     const {data, error} = await supabase.auth.updateUser(updateAttribute);
+//
+//     if(error) throw error;
+//
+//     return data;
+// }
