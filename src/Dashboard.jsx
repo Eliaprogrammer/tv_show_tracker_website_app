@@ -5,7 +5,7 @@ import './Dashboard.css';
 import {useEffect, useState} from "react";
 import Navbar from "./Navbar.jsx";
 import {FetchShowName} from './CRUD.jsx';
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import MenuNav from './MenuNav.jsx';
 
 function Dashboard(){

@@ -1,4 +1,3 @@
-import {IoCloseCircle} from "react-icons/io5";
 import {useEffect, useState} from "react";
 import './PopUp.css';
 

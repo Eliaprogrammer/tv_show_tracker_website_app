@@ -3,13 +3,13 @@
     font-size: 50px;
 }
 .show_title{
-    background-color: #b0cbe6;
-    width: min(300px, 90%);
-    margin: 64px auto 0;
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: 11px 27px;
+    background-color: #b0cbe6;
+    width: min(200px, 90%);
+    margin: 64px auto 0;
+    grid-template-columns: auto auto;
+
 }
 
 .column{
