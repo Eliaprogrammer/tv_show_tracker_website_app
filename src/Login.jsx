@@ -1,6 +1,7 @@
 import './Login.css';
 import {Link, useNavigate} from 'react-router-dom';
 import {SignInUser} from "./services/authService.js";
+import PopUpAction from "./PopUp.jsx";
 
 
 function Login (){
@@ -21,8 +22,11 @@ function Login (){
             })
 
 
-            navigate("/")
             console.log("Login granted");
+            <PopUpAction />
+            navigate("/")
+
+
 
 
         }catch(error){
