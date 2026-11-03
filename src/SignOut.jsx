@@ -1,24 +1,28 @@
 import {SignOutUser} from "./services/authService.js";
 import {Link} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 function SignOut(){
     const [accountStatue, setAccountStatue] = useState('loading');
+    const hasSignOut = useRef(false);
 
     useEffect( () =>{
-            async function HandleGoodbye(){
-                try{
-                    await SignOutUser()
-                    console.log("logged out");
-                    setAccountStatue("success");
-                }
-                catch(error){
-                    console.log(error.message);
-                    setAccountStatue("Not logged out");
-                }
+        if(hasSignOut.current) return;
+        hasSignOut.current = true;
 
+        async function HandleGoodbye(){
+            try{
+                await SignOutUser()
+                console.log("logged out");
+                setAccountStatue("success");
             }
-            HandleGoodbye();
+            catch(error){
+                console.log(error.message);
+                setAccountStatue("Not logged out");
+            }
+
+        }
+        HandleGoodbye();
     },[])
 
     return(
