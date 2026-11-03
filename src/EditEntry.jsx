@@ -118,7 +118,8 @@ function EditEntry(){
 
                 </>
             ) : (
-                <Edit onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleUpdate} />
+                <Edit onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleUpdate}
+                      displayPopUp={displayPopUp} />
             )}
 
         </div>
@@ -207,7 +208,7 @@ function UpdateForm({updateData, setUpdateData, onProceedToConfirm}){
     )
 }
 
-function Edit ({onCancel, onConfirm}){
+function Edit ({onCancel, onConfirm, displayPopUp}){
     return (
         <div className="update_confirm">
             <div className="alert">

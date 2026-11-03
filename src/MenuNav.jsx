@@ -3,6 +3,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import {useEffect, useState} from 'react';
 import './MenuNav.css';
 import {FilterSeriesWatched, FilterShowsAlphabetically, FilterStreamingService, FetchStreamingService} from "./CRUD.jsx";
+import ShowTile from './ShowTile.jsx';
 
 function MenuNav () {
 
@@ -19,7 +20,7 @@ function MenuNav () {
                 setFilterShows(sort);
             }
             else if(condition === "Streaming Service"){
-                const sortStreamingService = await FilterStreamingService();
+                const sortStreamingService = await FilterStreamingService(service);
                 setFilterShows(sortStreamingService);
             }
             else if(condition === "Shows Watched/Finished"){
@@ -91,12 +92,10 @@ function MenuNav () {
                    ))}
                </div>
 
-               <div>
-                   {filterShows.map((item) => (
-                       <div key={item.id}>
-                           {item.show_name}
-                       </div>
-                   ))}
+               <div className="fetch_results">
+                   {filterShows.length > 0 && (
+                       <ShowTile allShowsList={filterShows} />
+                   )}
                </div>
            </div>
         </div>
@@ -110,10 +109,10 @@ function SubMenu  ({item, HandleMenu}) {
 
     return(
 
-        <div className={`sub_menu `}>
+        <div className={`sub_menu`}>
 
-            <div className="submenu_item" onClick={() =>
-            {setSubMenu(true);
+            <div className="submenu_item" onClick={() => {
+                setSubMenu(true);
                 if(item.condition){
                     HandleMenu(item.condition, item.streaming);
                 }
@@ -133,8 +132,6 @@ function SubMenu  ({item, HandleMenu}) {
 
                     {item.subNav.map((sub, index) =>(
                         <SubMenu item={sub} key={index} HandleMenu={HandleMenu} />
-                        // <ShowTile />
-
                     ))}
                 </div>
             )}

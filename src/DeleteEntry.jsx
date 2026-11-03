@@ -66,14 +66,14 @@ function DeleteEntry(){
                     <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
                 </>
             ) : (
-                <Remove onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleDelete}/>
+                <Remove onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleDelete} displayPopUp={displayPopUp}/>
             )}
 
         </div>
     )
 }
 
-function Remove({onCancel, onConfirm}){
+function Remove({onCancel, onConfirm, displayPopUp}){
     return (
         <div className="delete_confirm">
             <div className="alert">

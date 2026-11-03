@@ -89,7 +89,7 @@ export async function FilterShowsAlphabetically(){
 
 export async function FilterStreamingService(platform) {
     const {data: filter_by_service, error: service_error} = await supabase.from('TV_Show')
-        .eq('streaming_service', platform ).select('streaming_service, series_completed');
+        .select('id, show_name, streaming_service').eq('streaming_service', platform );
     if(service_error){
         throw new Error("Error while filtering shows");
     }
@@ -99,7 +99,7 @@ export async function FilterStreamingService(platform) {
 
 export async function FilterSeriesWatched(){
     const {data: filter_by_series_completed, error: completed_error} = await supabase.from('TV_Show')
-        .eq('series_complete', true).select('show_name')
+        .select('id, show_name').eq('series_completed', true)
 
     if(completed_error) {
         throw new Error('Error while filtering shows by series_completed');
@@ -115,8 +115,6 @@ export async function FetchStreamingService(){
         throw new Error("Error while fetching streaming service names");
     }
 
-    const removeDuplicates = [...new Set(
+    return [...new Set(
         data.map(show => show.streaming_service))];
-
-    return removeDuplicates;
 }
