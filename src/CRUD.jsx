@@ -76,3 +76,45 @@ export async function UpdateShow(id, showFields){
 
     return data;
 }
+
+export async function FilterShowsAlphabetically(){
+    const {data, error} = await supabase.from('TV_Show')
+        .select('id, show_name').order('show_name', {ascending: true});
+    if(error){
+        throw new Error("Error while sorting shows in ascending order");
+    }
+
+    return data;
+}
+
+export async function FilterStreamingService(platform) {
+    const {data: filter_by_service, error: service_error} = await supabase.from('TV_Show')
+        .select('id, show_name, streaming_service').eq('streaming_service', platform );
+    if(service_error){
+        throw new Error("Error while filtering shows");
+    }
+
+    return filter_by_service;
+}
+
+export async function FilterSeriesWatched(){
+    const {data: filter_by_series_completed, error: completed_error} = await supabase.from('TV_Show')
+        .select('id, show_name').eq('series_completed', true)
+
+    if(completed_error) {
+        throw new Error('Error while filtering shows by series_completed');
+    }
+    return filter_by_series_completed;
+}
+
+export async function FetchStreamingService(){
+    const {data, error} = await supabase.from('TV_Show')
+        .select('streaming_service');
+
+    if(error){
+        throw new Error("Error while fetching streaming service names");
+    }
+
+    return [...new Set(
+        data.map(show => show.streaming_service))];
+}

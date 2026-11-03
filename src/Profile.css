@@ -1,0 +1,35 @@
+.page_heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table_value{
+    border: 2px solid black;
+    border-right: black solid 2px;
+    width: auto;
+    padding: 10px 10px;
+    margin-right: 10px;
+}
+
+/*.profile_details{*/
+/*    display: flex;*/
+/*    align-content: center;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.profile_details_name, .profile_details_email{*/
+/*    border: 2px solid black;*/
+/*    border-right: black solid 2px;*/
+/*    width: auto;*/
+/*    padding: 10px 10px;*/
+/*    margin-right: 10px;*/
+/*}*/
+

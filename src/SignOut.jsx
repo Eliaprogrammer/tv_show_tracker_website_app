@@ -1,41 +1,49 @@
 import {SignOutUser} from "./services/authService.js";
-import {Link, useNavigate} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+import {useEffect, useRef, useState} from "react";
+
 function SignOut(){
-    const [signOutUser, setSignOutUser] = useState();
-    const navigate = useNavigate();
-    useEffect( () =>(
+    const [accountStatue, setAccountStatue] = useState('loading');
+    const hasSignOut = useRef(false);
+
+    useEffect( () =>{
+        if(hasSignOut.current) return;
+        hasSignOut.current = true;
+
         async function HandleGoodbye(){
             try{
                 await SignOutUser()
                 console.log("logged out");
-                setSignOutUser(true)
+                setAccountStatue("success");
             }
             catch(error){
-                console.log(error.message)
-                setSignOutUser(false)
+                console.log(error.message);
+                setAccountStatue("Not logged out");
             }
 
         }
-
-    ))
+        HandleGoodbye();
+    },[])
 
     return(
         <div>
-            {signOutUser === true ? (
+            {accountStatue === "loading" && (
+                <p>Loading.... Processing sign out</p>
+            )}
+
+            {accountStatue === "success" && (
                 <div>
                     <h1>You successfully sign out</h1>
                     <h2>Goodbye</h2>
                     <Link to="/">Go to Home Page</Link>
                 </div>
+            )}
 
-                ): signOutUser === false ?(
+            {accountStatue === "Not logged out" && (
                 <div>
                     <p>There was a problem when signing out</p>
                     <Link to="/dashboard">Go back to the dashboard</Link>
                 </div>
-            ): (
-               navigate("/dashboard")
             )}
 
         </div>

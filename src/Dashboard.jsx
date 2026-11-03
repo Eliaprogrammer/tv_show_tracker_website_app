@@ -1,11 +1,10 @@
-import disgust from './assets/disgust.png';
-import { FaRegThumbsUp } from "react-icons/fa6";
-import { FaRegHeart } from "react-icons/fa6";
 import './Dashboard.css';
 import {useEffect, useState} from "react";
 import Navbar from "./Navbar.jsx";
 import {FetchShowName} from './CRUD.jsx';
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
+import MenuNav from './MenuNav.jsx';
+import ShowTile from "./ShowTile.jsx";
 
 function Dashboard(){
 
@@ -34,13 +33,14 @@ function Dashboard(){
     return(
         <>
             <div className="dashboard">
+               <MenuNav />
                 <Navbar/>
 
                 <div>
                     {loading ? (
                         <p>Loading...</p>
                     ) : error ? (
-                            <p>Could not load show: {error}</p>
+                            <p>Could not load show(s): You have to be sign in  <Link to="/"> Go to Home Page</Link></p>
                     ) : tv.length === 0 ? (
                         <div className="text">
                             <p>Add a show to view details</p>
@@ -56,37 +56,4 @@ function Dashboard(){
     );
 }
 
-function ShowTile({allShowsList}){
-    const navigate = useNavigate();
-
-    return(
-        <div className="show_title">
-            <div className="row">
-                {allShowsList.map((show) => (
-                    <div className="column" key={show.id}>
-                        <h3>{show.show_name}</h3>
-
-                        <div className="rate">
-                            <div className="Hearts">
-                                <FaRegHeart />
-                            </div>
-
-                            <div className="thumb_up">
-                                <FaRegThumbsUp />
-                            </div>
-
-                            <div className="disgust">
-                                <img src={disgust} alt="A picture of a disgust emoji" />
-                            </div>
-
-                            <div className="view_details">
-                                <button type="button" onClick={() => navigate("/show")}>View Information</button>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
 export default Dashboard;

@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import Navbar from "./Navbar.jsx";
 import {SaveShow} from "./CRUD.jsx";
+import PopUpAction from "./PopUp.jsx";
 
 
 function GenerateEntry(){
@@ -15,6 +16,8 @@ function GenerateEntry(){
     const [streaming, setStreaming] = useState("");
     const [numberEpisodeWatched, setNumberEpisodeWatched] = useState(0);
     const [watched, setWatched] = useState(false);
+
+    const [displayPopUp, setDisplayPopUp] = useState(false);
 
     async function generate (event) {
         event.preventDefault();
@@ -32,7 +35,9 @@ function GenerateEntry(){
         try{
             await SaveShow(series);
             console.log("Saved", series)
-            navigate('/dashboard');
+
+            setDisplayPopUp(true);
+            setTimeout(() => navigate("/dashboard"), 3000);
         }
         catch(error){
             console.error("Can't add TV show");
@@ -113,7 +118,7 @@ function GenerateEntry(){
             </form>
 
             <button type="button" className="back" onClick={()=>navigate('/dashboard')}>Back</button>
-
+            {displayPopUp && <PopUpAction />}
         </div>
     );
 }

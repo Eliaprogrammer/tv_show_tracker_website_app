@@ -1,0 +1,25 @@
+.show_title{
+    display: grid;
+    overflow-x: auto;
+    gap: 11px 27px;
+    width: 100%;
+    margin: 64px auto 0;
+    grid-template-rows: auto auto;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 11px 27px;
+    align-items: center;
+    justify-content: center;
+}
+
+.column{
+    flex: 0 0 250px;
+    border: 1px solid black;
+    padding: 15px;
+    background-color: #b0cbe6;
+    box-sizing: border-box;
+}

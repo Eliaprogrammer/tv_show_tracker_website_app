@@ -5,6 +5,7 @@ import {useEffect, useState} from 'react';
 import './E&DEntry.css'
 import Navbar from "./Navbar.jsx";
 import {FetchShow, UpdateShow} from "./CRUD.jsx";
+import PopUpAction from "./PopUp.jsx";
 
 function EditEntry(){
 
@@ -13,6 +14,7 @@ function EditEntry(){
     const [updateShow, setUpdateShow] = useState("");
     const [trackId, setTrackId] = useState("");
     const [displayConfirmation, setDisplayConfirmation] = useState(false);
+    const [displayPopUp, setDisplayPopUp] = useState(false);
 
     const [updateData, setUpdateData] = useState({
         show_name: "",
@@ -80,7 +82,8 @@ function EditEntry(){
 
             await UpdateShow(trackId, updateData)
             console.log("The show has been updated successfully");
-            navigate("/dashboard");
+            setDisplayPopUp(true);
+            setTimeout(() => navigate("/dashboard"), 3000);
         }
         catch(error){
             console.error("Error while updating show: ", error.message)
@@ -115,7 +118,8 @@ function EditEntry(){
 
                 </>
             ) : (
-                <Edit onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleUpdate} />
+                <Edit onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleUpdate}
+                      displayPopUp={displayPopUp} />
             )}
 
         </div>
@@ -204,7 +208,7 @@ function UpdateForm({updateData, setUpdateData, onProceedToConfirm}){
     )
 }
 
-function Edit ({onCancel, onConfirm}){
+function Edit ({onCancel, onConfirm, displayPopUp}){
     return (
         <div className="update_confirm">
             <div className="alert">
@@ -217,6 +221,8 @@ function Edit ({onCancel, onConfirm}){
                 <button type="button" className="yes" onClick={onConfirm}><IoCheckmarkSharp /></button>
                 <button type="button" className="undo" onClick={onCancel}><IoMdUndo /></button>
             </div>
+
+            {displayPopUp && <PopUpAction />}
         </div>
     )
 }

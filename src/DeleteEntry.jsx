@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import './E&DEntry.css'
 import Navbar from "./Navbar.jsx";
 import {DeleteShow, FetchShowName} from "./CRUD.jsx";
+import PopUpAction from "./PopUp.jsx";
 
 function DeleteEntry(){
 
@@ -12,6 +13,8 @@ function DeleteEntry(){
     const [option, setOption] = useState([]);
     const [displayConfirmation, setDisplayConfirmation] = useState(false);
     const [selected, setSelected] = useState("");
+
+    const [displayPopUp, setDisplayPopUp] = useState(false);
 
     useEffect(() => {
         async function Title() {
@@ -32,7 +35,8 @@ function DeleteEntry(){
         try{
             await DeleteShow(selected);
             console.log("Show deleted");
-            navigate("/dashboard");
+            setDisplayPopUp(true);
+            setTimeout(() => navigate("/dashboard"), 3000);
         }
         catch(error){
             console.error("Error while deleting show: ", error);
@@ -62,14 +66,14 @@ function DeleteEntry(){
                     <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
                 </>
             ) : (
-                <Remove onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleDelete}/>
+                <Remove onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleDelete} displayPopUp={displayPopUp}/>
             )}
 
         </div>
     )
 }
 
-function Remove({onCancel, onConfirm}){
+function Remove({onCancel, onConfirm, displayPopUp}){
     return (
         <div className="delete_confirm">
             <div className="alert">
@@ -78,7 +82,11 @@ function Remove({onCancel, onConfirm}){
             </div>
             <button type="button" className="yes" onClick={onConfirm}><IoCheckmarkSharp /></button>
             <button type="button" className="undo" onClick={onCancel}><IoMdUndo /></button>
+
+            {displayPopUp && <PopUpAction />}
         </div>
+
+
     )
 }
 export default DeleteEntry;

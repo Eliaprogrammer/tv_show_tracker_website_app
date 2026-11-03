@@ -62,5 +62,25 @@ export async function SignOutUser(){
     const {error} = await supabase.auth.signOut({
         scope: "local"
     });
-    if(error) throw error;
+    if(error.status === 403 || error.message.includes("session")){
+        console.warn("Session was already expired");
+        return;
+    } throw error;
 }
+
+export async function ProfileInfo(){
+    const {data: {user}, error} = await supabase.auth.getUser();
+    let metadata = user?.user_metadata;
+
+    if(error) throw error;
+
+    return metadata;
+}
+
+// export async function UpdateProfile(updateAttribute){
+//     const {data, error} = await supabase.auth.updateUser(updateAttribute);
+//
+//     if(error) throw error;
+//
+//     return data;
+// }
