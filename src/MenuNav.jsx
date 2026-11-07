@@ -3,7 +3,6 @@ import { IoCloseCircle } from "react-icons/io5";
 import {useEffect, useState} from 'react';
 import './MenuNav.css';
 import {FilterSeriesWatched, FilterShowsAlphabetically, FilterStreamingService, FetchStreamingService} from "./CRUD.jsx";
-import ShowTile from './ShowTile.jsx';
 
 function MenuNav ({onFilterSelect, allShows}) {
 
