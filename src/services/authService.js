@@ -62,10 +62,14 @@ export async function SignOutUser(){
     const {error} = await supabase.auth.signOut({
         scope: "local"
     });
-    if(error.status === 403 || error.message.includes("session")){
-        console.warn("Session was already expired");
-        return;
-    } throw error;
+
+    if(error){
+        if(error.status === 403 || error.message?.includes("session")){
+            console.warn("Session was already expired");
+            return;
+        }
+        throw error;
+    }
 }
 
 export async function ProfileInfo(){
