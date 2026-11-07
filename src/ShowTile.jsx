@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {FaRegHeart, FaRegThumbsUp} from "react-icons/fa6";
 import disgust from "./assets/disgust.png";
 import './ShowTile.css';
+import show from "./Show.jsx";
 
 export  default function ShowTile({allShowsList}) {
     const navigate = useNavigate();
@@ -10,6 +11,7 @@ export  default function ShowTile({allShowsList}) {
         <div className="show_title">
             <div className="row">
                 {allShowsList.map((show) => (
+
                     <div className="column" key={show.id}>
                         <h3>{show.show_name}</h3>
 

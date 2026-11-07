@@ -21,7 +21,7 @@ export async function FetchShow (){
         return [];
     }
 
-    return data;
+    return data ?? [];
 }
 
 export async function SaveShow (details){
@@ -84,7 +84,7 @@ export async function FilterShowsAlphabetically(){
         throw new Error("Error while sorting shows in ascending order");
     }
 
-    return data;
+    return data ?? [];
 }
 
 export async function FilterStreamingService(platform) {
@@ -94,17 +94,17 @@ export async function FilterStreamingService(platform) {
         throw new Error("Error while filtering shows");
     }
 
-    return filter_by_service;
+    return filter_by_service ?? [];
 }
 
 export async function FilterSeriesWatched(){
     const {data: filter_by_series_completed, error: completed_error} = await supabase.from('TV_Show')
-        .select('id, show_name').eq('series_completed', true)
+        .select('id, show_name, series_completed').eq('series_completed', true)
 
     if(completed_error) {
         throw new Error('Error while filtering shows by series_completed');
     }
-    return filter_by_series_completed;
+    return filter_by_series_completed ?? [];
 }
 
 export async function FetchStreamingService(){
@@ -114,6 +114,8 @@ export async function FetchStreamingService(){
     if(error){
         throw new Error("Error while fetching streaming service names");
     }
+
+    if(!data) return [];
 
     return [...new Set(
         data.map(show => show.streaming_service))];

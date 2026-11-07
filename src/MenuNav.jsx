@@ -5,11 +5,11 @@ import './MenuNav.css';
 import {FilterSeriesWatched, FilterShowsAlphabetically, FilterStreamingService, FetchStreamingService} from "./CRUD.jsx";
 import ShowTile from './ShowTile.jsx';
 
-function MenuNav () {
+function MenuNav ({onFilterSelect, allShows}) {
 
     const [open, setOpen] = useState(false)
     const showMenu = () => setOpen(!open)
-    const [filterShows, setFilterShows] = useState([])
+    // const [filterShows, setFilterShows] = useState([])
     const [streamingServices, setStreamingService] = useState([]);
 
 
@@ -17,15 +17,15 @@ function MenuNav () {
         try{
             if(condition === "Alphabetical"){
                 const sort = await FilterShowsAlphabetically();
-                setFilterShows(sort);
+                onFilterSelect(sort);
             }
             else if(condition === "Streaming Service"){
                 const sortStreamingService = await FilterStreamingService(service);
-                setFilterShows(sortStreamingService);
+                onFilterSelect(sortStreamingService);
             }
             else if(condition === "Shows Watched/Finished"){
                 const sortWatchedShows = await FilterSeriesWatched();
-                setFilterShows(sortWatchedShows);
+                onFilterSelect(sortWatchedShows);
             }
         }
         catch(error){
@@ -55,6 +55,7 @@ function MenuNav () {
             title: "Menu",
             link: '/dashboard',
             icon: <IoMdMenu/>,
+            onClick: () => onFilterSelect(allShows),
             subNav: [
                 {
                     title: "Alphabetical",
@@ -76,7 +77,7 @@ function MenuNav () {
 
                 {
                     title: "Shows Watched/Finished",
-                    link: '/dashboard',
+                    link: '/dashboard/Watched',
                     condition: "Shows Watched/Finished"
                 }
             ]
@@ -90,12 +91,6 @@ function MenuNav () {
                    {menu_labels.map((item, index) => (
                        <SubMenu item={item} key={index} HandleMenu={HandleMenu} />
                    ))}
-               </div>
-
-               <div className="fetch_results">
-                   {filterShows.length > 0 && (
-                       <ShowTile allShowsList={filterShows} />
-                   )}
                </div>
            </div>
         </div>
@@ -113,6 +108,11 @@ function SubMenu  ({item, HandleMenu}) {
 
             <div className="submenu_item" onClick={() => {
                 setSubMenu(true);
+
+                if(item.onClick) {
+                    item.onClick();
+                }
+
                 if(item.condition){
                     HandleMenu(item.condition, item.streaming);
                 }
@@ -124,9 +124,7 @@ function SubMenu  ({item, HandleMenu}) {
 
             {subMenu && item.subNav && (
                 <div className="dropdown_menu">
-                    <div className="close_submenu"
-                        onClick={showSubMenu}
-                    >
+                    <div className="close_submenu" onClick={showSubMenu}>
                         <IoCloseCircle />
                     </div>
 
