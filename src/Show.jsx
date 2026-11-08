@@ -1,14 +1,18 @@
 import {FetchShow} from "./CRUD.jsx";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function ShowDetails(){
-    const [showInfo, setShowInfo] = useState([])
+    const [showInfo, setShowInfo] = useState([]);
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         async function HandleDetails() {
             try {
                 const FetchInfo = await FetchShow()
                 setShowInfo(FetchInfo);
-                console.log("Show is information is being displayed")
+                console.log("Show information is being displayed")
             } catch (error) {
                 console.log(error.message)
             }
@@ -33,6 +37,8 @@ function ShowDetails(){
                     </div>
                 ))
             )}
+
+            <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
 
         </div>
     );

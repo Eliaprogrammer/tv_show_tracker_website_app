@@ -15,7 +15,7 @@ function Footer(){
 
     return(
         <div>
-            <Link to={"#top"} onClick={()=> scrollRef(topPageRef)}> Return to top</Link>
+            <Link to={"#top"} onClick={(e)=> scrollRef(e)}> Return to top</Link>
 
             <div className="footer">
 
