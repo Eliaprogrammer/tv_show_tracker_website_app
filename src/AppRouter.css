@@ -1,6 +1,11 @@
+.structure{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows:  1fr auto;
+    grid-template-columns: minmax(0, 1fr);
+}
 .footer{
     background-color: lightgray;
-    width:100%;
 }
 
 .footer_links{
