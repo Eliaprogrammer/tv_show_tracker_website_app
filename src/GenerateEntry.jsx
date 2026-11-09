@@ -18,6 +18,7 @@ function GenerateEntry(){
     const [watched, setWatched] = useState(false);
 
     const [displayPopUp, setDisplayPopUp] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(true);
 
     async function generate (event) {
         event.preventDefault();
@@ -36,11 +37,16 @@ function GenerateEntry(){
             await SaveShow(series);
             console.log("Saved", series)
 
+            setIsSuccess(true);
             setDisplayPopUp(true);
             setTimeout(() => navigate("/dashboard"), 3000);
         }
         catch(error){
             console.error("Can't add TV show");
+            setIsSuccess(false);
+            setDisplayPopUp(true);
+
+
         }
     }
 
@@ -118,7 +124,16 @@ function GenerateEntry(){
             </form>
 
             <button type="button" className="back" onClick={()=>navigate('/dashboard')}>Back</button>
-            {displayPopUp && <PopUpAction />}
+
+            {displayPopUp && (<PopUpAction success={isSuccess} onClose={()=> {
+                        setDisplayPopUp(false);
+                        if(isSuccess){
+                            navigate("/dashboard");
+                        }
+                    }}
+                />
+            )}
+
         </div>
     );
 }

@@ -10,14 +10,18 @@ function Dashboard(){
 
 
     const [tv, setTv] = useState([]);
+    const [display, setDisplay] = useState([]);
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
 
     useEffect(() => {
         async function DisplayShow() {
             try{
                 const title = await FetchShowName()
                 setTv(title);
+                setDisplay(title);
 
             } catch (error){
                 console.error("Error to display show: ", error.message);
@@ -33,7 +37,7 @@ function Dashboard(){
     return(
         <>
             <div className="dashboard">
-               <MenuNav />
+               <MenuNav onFilterSelect={setDisplay} allShows={tv}/>
                 <Navbar/>
 
                 <div>
@@ -46,7 +50,7 @@ function Dashboard(){
                             <p>Add a show to view details</p>
                         </div>
                     )  : (
-                        <ShowTile allShowsList={tv} />
+                        <ShowTile allShowsList={display} />
                     )}
                 </div>
             </div>

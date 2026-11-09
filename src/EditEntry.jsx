@@ -15,6 +15,7 @@ function EditEntry(){
     const [trackId, setTrackId] = useState("");
     const [displayConfirmation, setDisplayConfirmation] = useState(false);
     const [displayPopUp, setDisplayPopUp] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(true);
 
     const [updateData, setUpdateData] = useState({
         show_name: "",
@@ -82,11 +83,14 @@ function EditEntry(){
 
             await UpdateShow(trackId, updateData)
             console.log("The show has been updated successfully");
+            setIsSuccess(true);
             setDisplayPopUp(true);
             setTimeout(() => navigate("/dashboard"), 3000);
         }
         catch(error){
             console.error("Error while updating show: ", error.message)
+            setIsSuccess(false);
+            setDisplayPopUp(true);
         }
     }
 
@@ -118,16 +122,20 @@ function EditEntry(){
 
                 </>
             ) : (
-                <Edit onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleUpdate}
-                      displayPopUp={displayPopUp} />
+                <Edit onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleUpdate} />
             )}
 
+            {displayPopUp && (<PopUpAction success={isSuccess} onClose={()=> {
+                    setDisplayPopUp(false);
+                        if(isSuccess){
+                            navigate("/");
+                        }
+                    }}
+                />
+            )}
         </div>
     );
-
 }
-
-
 
 function UpdateForm({updateData, setUpdateData, onProceedToConfirm}){
     function handleChange(event){
@@ -208,7 +216,7 @@ function UpdateForm({updateData, setUpdateData, onProceedToConfirm}){
     )
 }
 
-function Edit ({onCancel, onConfirm, displayPopUp}){
+function Edit ({onCancel, onConfirm}){
     return (
         <div className="update_confirm">
             <div className="alert">
@@ -221,8 +229,6 @@ function Edit ({onCancel, onConfirm, displayPopUp}){
                 <button type="button" className="yes" onClick={onConfirm}><IoCheckmarkSharp /></button>
                 <button type="button" className="undo" onClick={onCancel}><IoMdUndo /></button>
             </div>
-
-            {displayPopUp && <PopUpAction />}
         </div>
     )
 }

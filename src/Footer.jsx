@@ -4,9 +4,19 @@ import './Footer.css';
 import {Link} from 'react-router-dom';
 
 function Footer(){
+
+    const scrollRef = (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
     return(
         <div>
-            <Link to = "top"> Return to top</Link>
+            <Link to={"#top"} onClick={(e)=> scrollRef(e)}> Return to top</Link>
+
             <div className="footer">
 
 

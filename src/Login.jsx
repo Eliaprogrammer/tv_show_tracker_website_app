@@ -8,6 +8,8 @@ import {useState} from "react";
 function Login (){
     const navigate = useNavigate();
     const [displayPopUp, setDisplayPopUp] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(true);
+
 
     async function handleLogin(event){
         event.preventDefault();
@@ -25,10 +27,13 @@ function Login (){
 
 
             console.log("Login granted");
+            setIsSuccess(true);
             setDisplayPopUp(true);
             setTimeout(() => navigate("/"), 3000);
         }catch(error){
             console.log("Login denied", error.message);
+            setIsSuccess(false);
+            setDisplayPopUp(true);
         }
     }
 
@@ -80,10 +85,17 @@ function Login (){
                 </form>
 
             </div>
-            {displayPopUp && <PopUpAction />}
+            {displayPopUp && (<PopUpAction success={isSuccess} onClose={()=> {
+                        setDisplayPopUp(false);
+                        if(isSuccess){
+                            navigate("/");
+                        }
+                    }}
+                />
+            )}
 
         </div>
-    );
+    )
 
 }
 export default Login;
