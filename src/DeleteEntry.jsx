@@ -15,6 +15,7 @@ function DeleteEntry(){
     const [selected, setSelected] = useState("");
 
     const [displayPopUp, setDisplayPopUp] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(true);
 
     useEffect(() => {
         async function Title() {
@@ -23,7 +24,6 @@ function DeleteEntry(){
                 setOption(title);
             } catch (error){
                 console.error("Error to display show: ", error.message);
-
             }
         }
 
@@ -35,11 +35,13 @@ function DeleteEntry(){
         try{
             await DeleteShow(selected);
             console.log("Show deleted");
+            setIsSuccess(true)
             setDisplayPopUp(true);
-            setTimeout(() => navigate("/dashboard"), 3000);
         }
         catch(error){
             console.error("Error while deleting show: ", error);
+            setIsSuccess(false);
+            setDisplayPopUp(true);
         }
     }
 
@@ -66,14 +68,22 @@ function DeleteEntry(){
                     <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
                 </>
             ) : (
-                <Remove onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleDelete} displayPopUp={displayPopUp}/>
+                <Remove onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleDelete} />
             )}
 
+            {displayPopUp && (<PopUpAction success={isSuccess} onClose={()=> {
+                        setDisplayPopUp(false);
+                        if(isSuccess){
+                            navigate("/dashboard");
+                        }
+                    }}
+                />
+            )}
         </div>
     )
 }
 
-function Remove({onCancel, onConfirm, displayPopUp}){
+function Remove({onCancel, onConfirm}){
     return (
         <div className="delete_confirm">
             <div className="alert">
@@ -83,7 +93,7 @@ function Remove({onCancel, onConfirm, displayPopUp}){
             <button type="button" className="yes" onClick={onConfirm}><IoCheckmarkSharp /></button>
             <button type="button" className="undo" onClick={onCancel}><IoMdUndo /></button>
 
-            {displayPopUp && <PopUpAction />}
+
         </div>
 
 

@@ -8,6 +8,7 @@ import PopUpAction from "./PopUp.jsx";
 function NewAccount() {
     const navigate = useNavigate();
     const [displayPopUp, setDisplayPopUp] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(true);
 
     async function handleRegister(event) {
 
@@ -33,11 +34,14 @@ function NewAccount() {
             });
 
             console.log("Account established");
+            setIsSuccess(true);
             setDisplayPopUp(true);
             setTimeout(() => navigate("/"), 3000);
         }
         catch(error){
             console.error("Account not established", error.message)
+            setIsSuccess(false);
+            setDisplayPopUp(true);
         }
     }
 
@@ -89,7 +93,14 @@ function NewAccount() {
 
             </form>
 
-            {displayPopUp && <PopUpAction />}
+            {displayPopUp && (<PopUpAction success={isSuccess} onClose={()=> {
+                    setDisplayPopUp(false);
+                    if(isSuccess){
+                        navigate("/");
+                    }
+                }}
+                />
+            )}
         </div>
     );
 }

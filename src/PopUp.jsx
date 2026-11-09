@@ -11,18 +11,40 @@ import './PopUp.css';
     ): "";
 }
 
-function PopUpAction(){
+function PopUpAction(props){
     const [timePopUp, setTimePopUp] = useState(false);
 
     useEffect(()=> {
-        setTimeout(()=> {
+        const showPopUp = setTimeout(()=> {
             setTimePopUp(true);
-        }, 800);
+        }, 500);
 
-    }, [])
+        return () => clearTimeout(showPopUp)
+
+    }, []);
+
+    useEffect(()=>{
+        let closePopUpTimer;
+
+        if(timePopUp){
+            closePopUpTimer = setTimeout(() => {
+                setTimePopUp(false);
+
+                if(props.onClose) {
+                    props.onClose();
+                }
+            }, 3000);
+        }
+        return () => clearTimeout(closePopUpTimer);
+    }, [timePopUp]);
+
     return(
         <PopUp trigger={timePopUp} setTrigger={setTimePopUp} >
-            <h1>Action was successful</h1>
+            {props.success ? (
+                <h1>Action was successful</h1>
+            ): (
+                <h1>Please Try Again;There is a problem with the action</h1>
+            )}
         </PopUp>
 
     );
