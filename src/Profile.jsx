@@ -31,31 +31,34 @@ function UserProfile(){
     }
 
     return(
-        <div className="profile_content">
+        <div>
             <Navbar />
 
-            <h1 className="page_heading">User Profile</h1>
+            <div className="profile_content">
+                <h1 className="page_heading">User Profile</h1>
 
-            <div className="table">
-                <table className="table_format">
+                <div className="table">
+                    <table className="table_format">
 
-                    <thead>
-                    <tr className="table_header">
-                        <th className="table_value">Name</th>
-                        <th className="table_value">Email</th>
-                    </tr>
-                    </thead>
+                        <thead>
+                        <tr className="table_header">
+                            <th className="table_value">Name</th>
+                            <th className="table_value">Email</th>
+                        </tr>
+                        </thead>
 
-                    <tbody>
-                    <tr>
-                        <td className="table_value">{user?.full_name}</td>
-                        <td className="table_value">{user?.email}</td>
-                    </tr>
-                    </tbody>
-                </table>
+                        <tbody>
+                        <tr>
+                            <td className="table_value">{user?.full_name}</td>
+                            <td className="table_value">{user?.email}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
             </div>
-            <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
         </div>
+
     )
 } export default UserProfile;
 // Function for update profile information. I will not implement this at this time.

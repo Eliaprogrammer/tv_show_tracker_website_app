@@ -50,8 +50,11 @@ function DeleteEntry(){
         <div>
             <Navbar />
             {!displayConfirmation ? (
-                <>
-                    <p>Please select a show to delete</p>
+                <div className="delete_page">
+                    <div className="page_header">
+                        <p>Please select a show to delete</p>
+                    </div>
+
 
                     <select className='fetch_Option' value={selected}
                             onChange={(e)=>setSelected(e.currentTarget.value)} >
@@ -66,7 +69,7 @@ function DeleteEntry(){
 
                     <button className="delete_button" type="button" onClick={()=>setDisplayConfirmation(true)}>Delete</button>
                     <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
-                </>
+                </div>
             ) : (
                 <Remove onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleDelete} />
             )}
@@ -90,10 +93,11 @@ function Remove({onCancel, onConfirm}){
                 <h1>Are you sure you want to continue?</h1>
                 <p>You can't undo the deletion</p>
             </div>
-            <button type="button" className="yes" onClick={onConfirm}><IoCheckmarkSharp /></button>
-            <button type="button" className="undo" onClick={onCancel}><IoMdUndo /></button>
 
-
+            <div className="confirm_button">
+                <button type="button" className="yes" onClick={onConfirm}><IoCheckmarkSharp /></button>
+                <button type="button" className="undo" onClick={onCancel}><IoMdUndo /></button>
+            </div>
         </div>
 
 
