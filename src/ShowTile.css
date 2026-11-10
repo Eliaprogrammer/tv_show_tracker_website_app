@@ -2,9 +2,10 @@
     display: grid;
     overflow-x: auto;
     gap: 11px 27px;
-    width: 100%;
+    width: min(35rem, 90%);
     margin: 64px auto 0;
     grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
 }
 
 .row{

@@ -8,7 +8,6 @@ function MenuNav ({onFilterSelect, allShows}) {
 
     const [open, setOpen] = useState(false)
     const showMenu = () => setOpen(!open)
-    // const [filterShows, setFilterShows] = useState([])
     const [streamingServices, setStreamingService] = useState([]);
 
 

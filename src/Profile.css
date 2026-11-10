@@ -1,7 +1,12 @@
+.profile_content{
+    margin-top: clamp(5rem, 7rem, 9rem)
+}
+
 .page_heading{
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .table{
@@ -14,8 +19,7 @@
     border: 2px solid black;
     border-right: black solid 2px;
     width: auto;
-    padding: 10px 10px;
-    margin-right: 10px;
+    padding: 1rem 1rem;
 }
 
 /*.profile_details{*/

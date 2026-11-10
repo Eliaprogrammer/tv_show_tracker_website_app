@@ -98,19 +98,21 @@ function EditEntry(){
         <div>
             <Navbar />
             {!displayConfirmation ? (
-                <>
-                    <p>Please select a show to edit</p>
+                <div className="edit_page">
+                    <div className="page_header">
+                        <p>Please select a show to edit</p>
+                    </div>
 
-                    <select className="editSelect" value={updateShow} onChange={HandleSelectOption}>
+                        <select className="editSelect" value={updateShow} onChange={HandleSelectOption}>
 
-                        <option value="">- Select- </option>
-                        {option.map((label_show) =>(
-                            <option key={label_show.id} value={label_show.show_name}>
-                                {label_show.show_name}
-                            </option>
-                        ))}
+                            <option value="">- Select- </option>
+                            {option.map((label_show) =>(
+                                <option key={label_show.id} value={label_show.show_name}>
+                                    {label_show.show_name}
+                                </option>
+                            ))}
 
-                    </select>
+                        </select>
 
                     {updateShow && (
                         <UpdateForm updateData={updateData} setUpdateData={setUpdateData}
@@ -120,7 +122,7 @@ function EditEntry(){
 
                     <button className="back" type="button" onClick={()=>navigate('/dashboard')}>Back</button>
 
-                </>
+                </div>
             ) : (
                 <Edit onCancel={()=>setDisplayConfirmation(false)} onConfirm={HandleUpdate} />
             )}
@@ -147,7 +149,7 @@ function UpdateForm({updateData, setUpdateData, onProceedToConfirm}){
 
     return(
         <div>
-            <form>
+            <form className="edit_form">
                 <h2>Edit a show by high lighting the value</h2>
                 <div className="form_details">
                     <label>

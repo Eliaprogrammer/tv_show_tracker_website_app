@@ -1,3 +1,18 @@
+.edit_page .delete_page{
+    margin-top: clamp(1rem, 5vh, 3rem);
+}
+
+.page_header{
+    font-size: clamp(1rem, 1.60rem, 4rem);
+    margin-top: clamp(6.75rem, 6rem, 3rem);
+}
+
+.edit_form{
+    margin-top: clamp(2rem, 2.75, 3rem);
+    background: #b0cbe6;
+    max-width: clamp(25rem, 40rem, 50rem);
+}
+
 .update_button {
     background: #1d3156;
     color: white;
@@ -20,16 +35,22 @@
 
 .alert{
     background: #fed6ce;
+    margin-top: clamp(6.75rem, 6rem, 3rem);
 }
 
 .yes{
     background: #496894;
     color: white;
+    padding: .10rem .30rem;
+    font-size: clamp(2rem, 2.5rem, 3rem);
+    margin-right: clamp(1rem, 1.50rem, 3rem)
 }
 
 .undo{
     background: #1d3156;
     color: white;
+    padding: .10rem .30rem;
+    font-size: clamp(2rem, 2.5rem, 3rem);
 }
 
 .confirm_button{

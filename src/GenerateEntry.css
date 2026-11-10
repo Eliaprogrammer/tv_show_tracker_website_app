@@ -1,37 +1,35 @@
 .entry_form p{
-    font-size: 50px;
+    font-size: clamp(1rem, 2.25rem, 2.75rem);
     text-align: center;
-}
-
-.entry_form .navbar p{
-    font-size: 20px;
+    margin-top: 15vh;
 }
 
 .form_show_details{
     background-color: #b0cbe6;
-    max-width: 600px;
-    margin-left: clamp(200px, 4vw, 200px);
-    padding: 50px 100px 20px 30px;
+    max-width: 50vw;
+    margin-left: clamp(5rem, 9.75rem, 15rem);
+    padding: 3.125rem 6.5rem 2.5rem 1.875rem;
 }
 
 .form_details label{
-    margin-right: 20px;
+    margin-right: 1.25rem;
 }
 
 .form_details input{
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
     display: inline;
+    max-width: 8.75rem;
 }
 
 .save{
     background-color: #1d3156;;
     color: white;
-    width: 105px;
-    height: 60px;
-    font-size: 25px;
+    width: 6.5rem;
+    height: 4rem;
+    font-size: 1.563rem;
     border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 50px;
+    margin-top: 3rem;
+    margin-left: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,12 +40,11 @@
     display: flex;
     background-color: #496894;
     color: white;
-    width: 65px;
-    height: 65px;
-    margin-top: 10px;
-    margin-left: 25px;
-    padding: 35px 45px;
-    font-size: 25px;
+    width: 4.063rem;
+    height: 4.063rem;
+    margin: 1.25rem 1.5rem;
+    padding: 2.188rem 2.813rem;
+    font-size: 1.563rem;
     border-radius: 20px;
     align-items: center;
     justify-content: center;

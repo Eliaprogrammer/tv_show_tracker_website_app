@@ -16,7 +16,8 @@ body{
 
 .content{
   width: min(668px, 90%);
-  margin: 64px auto 0;
+  margin: 64px auto 10vh;
+  min-height: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 11px 27px;
