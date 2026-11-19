@@ -1,41 +1,70 @@
-import pencil from "./assets/pencil.png";
-import deleting from "./assets/delete.png";
-import profile from "./assets/profile.png";
+import { IoHome } from "react-icons/io5";
+import { IoMdAdd } from "react-icons/io";
+import { FaPencil } from "react-icons/fa6";
+import { BsFillTrash3Fill } from "react-icons/bs";
+import { IoPersonCircle } from "react-icons/io5";
+import { GiExitDoor } from "react-icons/gi";
+
 import "./Navbar.css"
 import {useNavigate} from "react-router-dom";
 
 
+const remote_options = [
+    {
+        icon: <IoHome />,
+        condition: "home",
+        path: "/",
+    },
+    {
+        icon: <IoMdAdd  className="add_action"/>,
+        condition: "add",
+        path: "/generate_show",
+    },
+    {
+        icon: <FaPencil />,
+        title: "Edit",
+        condition: "update",
+        path: "/update_show",
+
+    },
+    {
+        icon: <BsFillTrash3Fill  />,
+        title: "Delete",
+        condition: "delete",
+        path: "/delete_show",
+
+
+    },
+    {
+        icon:<IoPersonCircle />,
+        title: "Profile",
+        condition: "profile",
+        path: "/profile",
+    },
+    {
+        icon: <GiExitDoor />,
+        condition: "exit",
+        path: "/sign_out",
+    }
+
+];
 function Navbar(){
     const navigate = useNavigate();
 
+    function HandleIconClick(action){
+        if(action.path){
+            navigate(action.path);
+        }
+    }
+
     return (
         <div className="action_elements" >
-
-            <div className="edit" onClick={() => {navigate("/update_show");}}>
-                <img src={pencil} alt= "A picture of a pencil to indicate editing a show" />
-                <p>Edit</p>
-                {/*{setSelectEdit(true)}*/}
-            </div>
-
-            <div className="delete" onClick={() => {navigate("/delete_show");}}>
-                <img src={deleting} alt="A image of a trash can to indicate deleting a show" />
-                <p>Delete</p>
-                {}
-            </div>
-
-            <div className="profile" onClick={() => {navigate("/profile")}}>
-                <img src={profile} alt="A picture of a person profile icon" />
-                <p>Profile</p>
-            </div>
-
-            <div className="leave" onClick={() => {navigate("/sign_out")}}>
-                <p>Sign out</p>
-            </div>
-
-            <button className="add_button" onClick={()=> {navigate("/generate_show")}}>+</button>
-
-
-
+            {remote_options.map((action, index) =>(
+                <div className="action_option" key={index}  onClick={() => HandleIconClick(action)}>
+                    <span className="remote_icon" onClick={() => HandleIconClick(action)}>{action.icon}</span>
+                    <span className="remote_title">{action.title}</span>
+                </div>
+            ))}
         </div>
     )
 } export default Navbar;
