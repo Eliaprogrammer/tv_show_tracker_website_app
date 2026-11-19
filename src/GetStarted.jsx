@@ -1,6 +1,10 @@
+import {IoHome} from "react-icons/io5";
+import {useNavigate} from "react-router-dom";
 function GetStarted(){
+    const navigate = useNavigate();
     return(
         <div className="start">
+            <IoHome onClick={()=>navigate("/")}/>
             <h1>Getting Started</h1>
 
             <h3>Create an account</h3>

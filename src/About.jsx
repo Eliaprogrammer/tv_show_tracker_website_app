@@ -1,6 +1,10 @@
+import {IoHome} from "react-icons/io5";
+import {useNavigate} from "react-router-dom";
 function AboutInfo(){
+    const navigate = useNavigate();
     return(
         <div className="about_abstract">
+            <IoHome onClick={()=>navigate("/")}/>
 
             <h1 className="about_header">About</h1>
 
