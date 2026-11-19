@@ -14,6 +14,8 @@ import ShowDetails from "./Show.jsx";
 import "./AppRouter.css";
 import facebook from "./assets/facebook.png";
 import instagram from "./assets/Instagram_icon.png";
+import AboutInfo from "./About.jsx";
+import GetStarted from "./GetStarted";
 
  function AppRouter(){
      const scrollRef = (e) => {
@@ -42,6 +44,8 @@ import instagram from "./assets/Instagram_icon.png";
                         <Route path="/sign_out" element={<SignOut />} />
                         <Route path="/profile" element={<UserProfile />} />
                         <Route path="/show" element={<ShowDetails />} />
+                        <Route path="/about" element={<AboutInfo />} />
+                        <Route path="get_started" element={<GetStarted />} />
                     </Routes>
                 </main>
 
@@ -52,8 +56,8 @@ import instagram from "./assets/Instagram_icon.png";
                         <div className="footer">
 
                             <div className="footer_links">
-                                <p>Getting Started</p>
-                                <p>About us</p>
+                                <Link to={"/get_started"}>Getting Started</Link>
+                                <Link to={"/about"}>About The Website</Link>
                             </div>
 
                             <div className="address" >
