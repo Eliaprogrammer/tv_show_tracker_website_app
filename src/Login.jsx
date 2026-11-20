@@ -10,6 +10,9 @@ function Login (){
     const [displayPopUp, setDisplayPopUp] = useState(false);
     const [isSuccess, setIsSuccess] = useState(true);
 
+    const [secret, setSecret] = useState("");
+    const [visible, setVisible] = useState(false)
+
 
     async function handleLogin(event){
         event.preventDefault();
@@ -65,9 +68,10 @@ function Login (){
                             Password
                         </label>
 
-                        <input name="password" type="password" required/>
+                        <input value={secret} name="password" type={visible ? "text" : "password"}
+                               onChange={(e) => setSecret(e.target.value)} required/>
 
-                        <Link className="password" to="#" name="show">Show password</Link>
+                        <Link className="password" to="#" name="show" onClick={() => setVisible(!visible)}>{visible ? "Hide password" : "Show password"}</Link>
                     </div>
 
 

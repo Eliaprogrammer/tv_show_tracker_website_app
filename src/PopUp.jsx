@@ -43,7 +43,7 @@ function PopUpAction(props){
             {props.success ? (
                 <h1>Action was successful</h1>
             ): (
-                <h1>Please Try Again;There is a problem with the action</h1>
+                <h1>Please Try Again; There is a problem with the action</h1>
             )}
         </PopUp>
 
