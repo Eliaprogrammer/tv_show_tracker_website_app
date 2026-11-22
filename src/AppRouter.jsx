@@ -43,7 +43,7 @@ import GetStarted from "./GetStarted";
                         <Route path="/delete_show" element={<DeleteEntry />} />
                         <Route path="/sign_out" element={<SignOut />} />
                         <Route path="/profile" element={<UserProfile />} />
-                        <Route path="/show" element={<ShowDetails />} />
+                        <Route path="/show/:id" element={<ShowDetails />} />
                         <Route path="/about" element={<AboutInfo />} />
                         <Route path="get_started" element={<GetStarted />} />
                     </Routes>

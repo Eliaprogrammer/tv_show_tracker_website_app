@@ -12,9 +12,11 @@ export async function FetchShowName (){
     return data ?? [];
 }
 
-export async function FetchShow (){
+export async function FetchShow (id){
+    if(!id) return [];
+
     const {data, error} = await supabase.from('TV_Show')
-        .select("*");
+        .select("*").eq("id", id);
 
     if (error){
         console.error("Error fetching show: ", error.message)

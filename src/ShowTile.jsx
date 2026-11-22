@@ -29,7 +29,7 @@ export  default function ShowTile({allShowsList}) {
                             </div>
 
                             <div className="view_details">
-                                <button type="button" onClick={() => navigate("/show")}>View Information</button>
+                                <button type="button" onClick={() => navigate(`/show/${show.id}`)}>View Information</button>
                             </div>
                         </div>
                     </div>
