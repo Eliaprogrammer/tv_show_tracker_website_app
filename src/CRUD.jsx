@@ -12,11 +12,10 @@ export async function FetchShowName (){
     return data ?? [];
 }
 
-export async function FetchShow (id){
-    if(!id) return [];
+export async function FetchShow (){
 
     const {data, error} = await supabase.from('TV_Show')
-        .select("*").eq("id", id);
+        .select("*");
 
     if (error){
         console.error("Error fetching show: ", error.message)
@@ -121,4 +120,18 @@ export async function FetchStreamingService(){
 
     return [...new Set(
         data.map(show => show.streaming_service))];
+}
+
+export async function FetchShowInfo (id){
+    if(!id) return [];
+
+    const {data, error} = await supabase.from('TV_Show')
+        .select("*").eq("id", id);
+
+    if (error){
+        console.error("Error fetching show: ", error.message)
+        return [];
+    }
+
+    return data ?? [];
 }
