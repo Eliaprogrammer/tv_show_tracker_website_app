@@ -10,6 +10,9 @@ function NewAccount() {
     const [displayPopUp, setDisplayPopUp] = useState(false);
     const [isSuccess, setIsSuccess] = useState(true);
 
+    const [secret, setSecret] = useState("");
+    const [visible, setVisible] = useState(false)
+
     async function handleRegister(event) {
 
         event.preventDefault();
@@ -21,7 +24,10 @@ function NewAccount() {
         const user_password = formAttributes.get("password");
         const user_confirm_password = formAttributes.get("confirm_password");
 
-        if(user_password !== user_confirm_password){
+        if(user_password !== user_confirm_password || user_password.length < 6 ||
+            user_password.match("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)" + "(?=.*[-+_!@#$%^&*., ?]).+$")){
+            setIsSuccess(false);
+            setDisplayPopUp(true);
             console.log("Password do not match");
             return;
         }
@@ -72,8 +78,9 @@ function NewAccount() {
                     <label>
                         Password: <Asterisk/>
                     </label>
-                    <input name ="password" type="password" required />
-                    <Link className="show" to="#">Show Password</Link>
+                    <input value={secret} name ="password" type={visible ? "text" :"password"}
+                           onChange={(e) => setSecret(e.target.value)} required />
+                    <Link className="show" to="#" onClick={() => setVisible(!visible) }>{visible ? "Hide Password" : "Show Password"}</Link>
                 </div>
 
                 <div className ="form_content">

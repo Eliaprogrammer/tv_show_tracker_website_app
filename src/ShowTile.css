@@ -2,7 +2,7 @@
     display: grid;
     overflow-x: auto;
     gap: 11px 27px;
-    width: min(35rem, 90%);
+    width: min(35rem, 80%);
     margin: 64px auto 0;
     grid-template-rows: auto auto;
     grid-template-columns: auto auto;
@@ -23,4 +23,29 @@
     padding: 15px;
     background-color: #b0cbe6;
     box-sizing: border-box;
+}
+
+.rate{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.disgust img{
+    width: 15px;
+    height: 15px;
+}
+
+.view_details button{
+    background-color: #496894;
+    color: white;
+    padding: 10px 10px;
+}
+
+@media screen and (max-width: 400px){
+   .column h3{
+       font-size: 15px
+   }
+
+
 }

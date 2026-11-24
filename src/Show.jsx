@@ -1,29 +1,54 @@
 import {FetchShow} from "./CRUD.jsx";
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 function ShowDetails(){
-    const [showInfo, setShowInfo] = useState([]);
-
     const navigate = useNavigate();
+    const {id} = useParams();
+
+    const [showInfo, setShowInfo] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        let isMounted = true;
+
         async function HandleDetails() {
+            setLoading(true);
             try {
-                const FetchInfo = await FetchShow()
-                setShowInfo(FetchInfo);
-                console.log("Show information is being displayed")
+                const FetchInfo = await FetchShow(id);
+                if(isMounted){
+                    setShowInfo(FetchInfo);
+                }
+                console.log("Show is information is being displayed")
             } catch (error) {
                 console.log(error.message)
+                if(isMounted){
+                    setShowInfo([])
+                }
+            } finally{
+                if(isMounted){
+                    setLoading(false);
+                }
             }
         }
 
-        HandleDetails();
-    }, [])
+        if(id){
+            HandleDetails();
+        }
+        else {
+            setLoading(false);
+        }
+
+        return ()=> {
+            isMounted = false
+        };
+    }, [id])
 
     return (
         <div>
-            {showInfo.length === 0 ? (
+            {loading ? (
+                <p>Loading TV Show info please wait a moment</p>
+            ): (showInfo.length === 0 ? (
                 <p>No show with that name</p>
             ) : (showInfo.map((item) => (
                     <div key={item.id}>
@@ -36,7 +61,7 @@ function ShowDetails(){
                         <p>I have complete the show: {String(item.series_completed)}</p>
                     </div>
                 ))
-            )}
+            ))}
 
             <button className="back" type="button" onClick={()=> navigate('/dashboard')}>Back</button>
 

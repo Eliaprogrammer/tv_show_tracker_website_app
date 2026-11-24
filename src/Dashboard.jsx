@@ -1,4 +1,3 @@
-import './Dashboard.css';
 import {useEffect, useState} from "react";
 import Navbar from "./Navbar.jsx";
 import {FetchShowName} from './CRUD.jsx';

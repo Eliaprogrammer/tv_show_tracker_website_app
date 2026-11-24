@@ -12,10 +12,8 @@
     background-color: #faf8f8;
     display: flex;
     flex-direction: row;
-}
-
-.footer_links p{
-    margin: 0 10px;
+    gap: 15px;
+    padding: 5px;
 }
 
 .address p{

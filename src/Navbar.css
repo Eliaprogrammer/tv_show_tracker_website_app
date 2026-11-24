@@ -7,31 +7,99 @@
     margin-bottom: 10vh;
 }
 
-.edit img, .delete img, .profile img{
-    width: 2rem;
-    height: 3rem;
+.remote_icon{
+    font-size: 5rem;
 }
 
-.leave{
-    display:flex;
-}
-
-.leave p{
-    margin: 0;
-    font-size: clamp(1.5rem, 2rem, 2.5rem)
-}
-
-.add_button{
+.add_action{
     display: flex;
     position: absolute;
     top: 3.5rem;
     right: 0.4rem;
-    border-radius: 100%;
     background: #b0cbe6;
-    width: 3rem;
-    height: 3.5rem;
-    font-size: clamp(2.5rem, 3.25rem, 4rem);
-    align-content: center;
-    justify-content: center;
-    border: none;
+    border-radius: 100%;
+    margin-top: 2vh;
+}
+
+.remote_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+
+}
+
+
+@media screen and (max-width: 450px){
+    .action_elements{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display:flex;
+        margin-bottom: 10vh;
+        gap: 8px;
+    }
+
+    .remote_icon{
+        font-size: 1.5rem;
+    }
+
+    .add_action{
+        top: 2.75rem;
+        right: 0.2rem;
+        margin-top: .5vh;
+    }
+
+    .remote_title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5px;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 600px) {
+    .action_elements{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display:flex;
+        margin-bottom: 10vh;
+        gap: 10px 10px;
+
+    }
+
+    .remote_icon{
+        font-size: 1.85rem;
+    }
+
+    .add_action{
+        top: 3.5rem;
+        right: 0.2rem;
+        margin-top: 1.5vh;
+    }
+
+    .remote_title{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .action_elements {
+        gap: 10px;
+    }
+
+    .remote_icon {
+        font-size: 3rem;
+    }
+
+    .remote_title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5px;
+    }
 }
