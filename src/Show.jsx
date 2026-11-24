@@ -1,4 +1,4 @@
-import {FetchShow} from "./CRUD.jsx";
+import {FetchShowInfo} from "./CRUD.jsx";
 import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 
@@ -15,7 +15,7 @@ function ShowDetails(){
         async function HandleDetails() {
             setLoading(true);
             try {
-                const FetchInfo = await FetchShow(id);
+                const FetchInfo = await FetchShowInfo(id);
                 if(isMounted){
                     setShowInfo(FetchInfo);
                 }
